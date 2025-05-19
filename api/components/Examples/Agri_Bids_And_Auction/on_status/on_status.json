@@ -43,7 +43,7 @@
           ],
           "price": {
             "currency": "INR",
-            "maximum_value": "280.00",
+            "value": "300.00",
             "offered_value": "250.00"
           },
           "quantity": {
@@ -99,7 +99,7 @@
                 "label": "confirmed",
                 "range": {
                   "start": "2024-06-09T22:00:00.000Z",
-                  "end": "2024-06-10T02:00:00.000Z"
+                  "end": "2024-06-30T00:00:00.000Z"
                 }
               },
               "person": {
@@ -117,8 +117,7 @@
                 "status": "valid"
               }
             }
-          ],
-          "rateable": true
+          ]
         }
       ],
       "quote": {
@@ -267,7 +266,7 @@
       "payments": [
         {
           "id": "PY1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "url": "https://abc.com/take_payment",
           "params": {
             "amount": "5000.00",
@@ -277,6 +276,10 @@
           },
           "status": "PAID",
           "type": "PRE-FULFILLMENT",
+          "time": {
+            "label": "validity",
+            "timestamp": "2024-06-10T22:00:00.000Z"
+          },
           "tags": [
             {
               "descriptor": {
@@ -325,7 +328,7 @@
         },
         {
           "id": "PY2",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "25050.00",
             "currency": "INR",
@@ -379,6 +382,36 @@
               ]
             }
           ]
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Awarded"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "amount": {
+              "currency": "IND",
+              "value": "100"
+            }
+          }
         }
       ],
       "documents": [

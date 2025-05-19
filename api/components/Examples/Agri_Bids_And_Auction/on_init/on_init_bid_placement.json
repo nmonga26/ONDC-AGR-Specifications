@@ -23,13 +23,13 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
-      "locations": [
-        {
-          "id": "L1"
-        }
-      ],
       "items": [
         {
           "id": "I1",
@@ -90,7 +90,7 @@
                 "label": "confirmed",
                 "range": {
                   "start": "2024-06-09T22:00:00.000Z",
-                  "end": "2024-06-10T02:00:00.000Z"
+                  "end": "2024-06-30T00:00:00.000Z"
                 }
               }
             }
@@ -243,7 +243,7 @@
       "payments": [
         {
           "id": "PY1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "url": "https://abc.com/take_payment",
           "params": {
             "amount": "5000.00",
@@ -301,7 +301,7 @@
         },
         {
           "id": "PY2",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "25050.00",
             "currency": "INR",
@@ -366,7 +366,6 @@
           },
           "reason_required": false,
           "cancellation_fee": {
-            "percentage": "0",
             "amount": {
               "currency": "IND",
               "value": "0"
@@ -381,7 +380,6 @@
           },
           "reason_required": false,
           "cancellation_fee": {
-            "percentage": "10",
             "amount": {
               "currency": "IND",
               "value": "100"

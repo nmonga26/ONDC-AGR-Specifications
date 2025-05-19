@@ -88,11 +88,6 @@
           ]
         }
       ],
-      "payments": [
-        {
-          "type": "PRE-FULFILLMENT"
-        }
-      ],
       "tags": [
         {
           "descriptor": {

@@ -106,4 +106,10 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_search/on_search.yaml"
+  - summary: Returns the catalog with updated bids price if trigger the search call till the mode open
+    api: on_search (push by seller on price change in open bid)
+    description: Returns the catalog with updated bids price if trigger the search call till the mode open
+    reference: if any
+    example:
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_search/on_search_price_unsociated.yaml"
   

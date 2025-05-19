@@ -54,9 +54,6 @@ value:
               location:
                 gps: 12.974002,77.613458
                 area_code: '560001'
-      payments:
-        - type: PRE-FULFILLMENT
-        - type: ON-FULFILLMENT
       tags:
         - descriptor:
             code: BUYER_ID

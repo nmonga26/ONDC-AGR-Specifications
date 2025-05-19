@@ -237,7 +237,6 @@ value:
                 valid_from: '2024-06-10T22:00:00Z'
                 valid_to: '2024-06-10T23:00:00Z'
                 status: valid
-          rateable: true
       quote:
         price:
           currency: INR

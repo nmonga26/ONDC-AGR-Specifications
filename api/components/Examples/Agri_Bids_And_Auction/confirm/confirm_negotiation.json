@@ -23,7 +23,6 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "Accepted",
       "provider": {
         "id": "P1",
         "locations": [

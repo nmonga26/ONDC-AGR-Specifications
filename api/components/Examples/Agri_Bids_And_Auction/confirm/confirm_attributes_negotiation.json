@@ -23,7 +23,6 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "Accepted",
       "provider": {
         "id": "P1",
         "locations": [
@@ -113,7 +112,7 @@
                 "label": "confirmed",
                 "range": {
                   "start": "2024-06-09T22:00:00.000Z",
-                  "end": "2024-06-10T02:00:00.000Z"
+                  "end": "2024-06-30T00:00:00.000Z"
                 }
               },
               "customer": {
@@ -250,7 +249,7 @@
       "payments": [
         {
           "id": "PY2",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "27050.00",
             "currency": "INR",

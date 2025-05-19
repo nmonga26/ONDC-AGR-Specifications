@@ -134,7 +134,7 @@ steps:
     description: Seller verifies the Buyer's ID whether he is allowed or not. 
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_select/on_select.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_select/on_select_close_bid.yaml"
   - summary: Buyer requests participation fee if required
     api: init (Participation Fee)
     description: Buyer requests participation with /init and perform Fee Requirement Check
@@ -146,7 +146,7 @@ steps:
     description: Seller responds with /on_init, sending a payment gateway (PG) link for payment.
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_init/on_init.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_init/on_init_close_bid.yaml"
   - summary: Buyer sends /init, indicating bid placement. The bid price will be shared in the intent.
     api: init (Bid Placement)
     description: Buyer sends /init, indicating bid placement. The bid price will be shared in the intent.
@@ -158,7 +158,7 @@ steps:
     description: Seller acknowledges the bid placement with /on_init
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_init/on_init_bid_placement.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_init/on_init_bid_placement_close_bid.yaml"
   - summary: Buyer confirms the order with /confirm.
     api: confirm
     description: Buyer confirms the order with /confirm.
@@ -169,7 +169,7 @@ steps:
     description: Seller responds with /on_confirm, creating an Order ID with the bid state set to "Placed."
     reference: if any
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_confirm/on_confirm.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_confirm/on_confirm_close_bid.yaml"
   - summary: Buyer requests for the status of the bid
     api: status
     description: Buyer requests for the status of the bid

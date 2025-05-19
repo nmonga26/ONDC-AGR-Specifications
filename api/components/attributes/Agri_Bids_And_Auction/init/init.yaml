@@ -74,12 +74,12 @@ message:
         reference: if any
       email:
         description: email address for billing
-        required: required
+        required: optional
         usage: "nobody@nomail.com"
         reference: if any
       phone:
         description: phone number for billing
-        required: required
+        required: optional
         usage: "9886098860"
         reference: if any
     fulfillments:
@@ -157,21 +157,4 @@ message:
               required: required
               usage: "2024-04-04T23:00:00.000Z"
               reference: if any
-    payments:
-      parent: true
-      payments:
-        description: payments of the bid
-        required: required
-        usage: "-"
-        reference: if any
-      type:
-        description: type of payment
-        required: required
-        usage: "PRE-FULFILLMENT"
-        reference: if any
-      collected_by:
-        description: who collects the payment
-        required: required
-        usage: "BAP"
-        reference: if any
         

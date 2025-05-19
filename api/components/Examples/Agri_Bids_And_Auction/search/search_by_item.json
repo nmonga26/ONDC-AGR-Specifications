@@ -27,7 +27,7 @@
             },
             "payment": {
                 "type": "ON-FULFILLMENT",
-                "collected_by": "BAP"
+                "collected_by": "BPP"
             },
             "tags": [
                 {

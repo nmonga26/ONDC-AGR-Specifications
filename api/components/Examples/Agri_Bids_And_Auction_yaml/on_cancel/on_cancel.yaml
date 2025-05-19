@@ -58,7 +58,7 @@ value:
                 label: confirmed
                 range:
                   start: '2024-06-09T22:00:00.000Z'
-                  end: '2024-06-10T02:00:00.000Z'
+                  end: '2024-06-30T00:00:00.000Z'
               person:
                 name: Ramu
               instructions:
@@ -70,7 +70,6 @@ value:
                 valid_from: '2024-06-10T22:00:00Z'
                 valid_to: '2024-06-10T23:00:00Z'
                 status: valid
-          rateable: true
       billing:
         name: ONDC buyer
         address: >-
@@ -162,7 +161,7 @@ value:
         ttl: P1D
       payments:
         - id: PY1
-          collected_by: BAP
+          collected_by: BPP
           url: https://abc.com/take_payment
           params:
             amount: '5000.00'
@@ -194,7 +193,7 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
         - id: PY2
-          collected_by: BAP
+          collected_by: BPP
           params:
             amount: '25050.00'
             currency: INR
