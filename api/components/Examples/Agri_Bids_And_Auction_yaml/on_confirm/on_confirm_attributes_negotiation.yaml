@@ -24,7 +24,6 @@ value:
         id: P1
         locations:
           - id: L1
-        rateable: true
       items:
         - id: I1
           location_ids:
@@ -236,7 +235,6 @@ value:
                 valid_from: '2024-06-10T22:00:00Z'
                 valid_to: '2024-06-10T23:00:00Z'
                 status: valid
-          rateable: true
       quote:
         price:
           currency: INR
@@ -340,26 +338,17 @@ value:
           reason_required: false
           cancellation_fee:
             percentage: '0'
-            amount:
-              currency: IND
-              value: '0'
         - fulfillment_state:
             descriptor:
               code: Packed
           reason_required: false
           cancellation_fee:
             percentage: '10'
-            amount:
-              currency: IND
-              value: '100'
         - fulfillment_state:
             descriptor:
               code: Agent-assigned
           reason_required: false
           cancellation_fee:
             percentage: '10'
-            amount:
-              currency: IND
-              value: '100'
       created_at: '2024-06-10T22:00:46.000Z'
       updated_at: '2024-06-10T22:00:48.000Z'

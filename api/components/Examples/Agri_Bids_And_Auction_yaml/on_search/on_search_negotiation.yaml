@@ -23,13 +23,6 @@ value:
           type: Buyer-Fulfilled
         - id: F2
           type: Seller-Fulfilled
-      payments:
-        - id: PY1
-          type: PRE-FULFILLMENT
-        - id: PY2
-          type: ON-FULFILLMENT
-        - id: PY3
-          type: POST-FULFILLMENT
       descriptor:
         name: Wheat Farm Store
         short_desc: Wheat Farm Store
@@ -138,8 +131,6 @@ value:
                 - F2
               location_ids:
                 - L1
-              payment_ids:
-                - PY2
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:

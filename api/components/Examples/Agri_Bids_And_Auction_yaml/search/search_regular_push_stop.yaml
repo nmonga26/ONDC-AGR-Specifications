@@ -18,7 +18,7 @@ value:
     intent:
       payment:
         type: ON-FULFILLMENT
-        collected_by: BAP
+        collected_by: BPP
       tags:
         - code: CATALOG_INC
           list:

@@ -23,6 +23,8 @@ value:
       status: In-Progress
       provider:
         id: P1
+        locations:
+          - id: L1
       items:
         - id: I1
           price:
@@ -30,4 +32,4 @@ value:
             offered_value: '300.00'
           quantity:
             selected:
-              count: 1
+              count: 100

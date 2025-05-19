@@ -23,13 +23,6 @@ value:
           type: Buyer-Fulfilled
         - id: F2
           type: Bids
-      payments:
-        - id: PY1
-          type: PRE-FULFILLMENT
-        - id: PY2
-          type: ON-FULFILLMENT
-        - id: PY3
-          type: POST-FULFILLMENT
       descriptor:
         name: Wheat Farm Store
         short_desc: Wheat Farm Store
@@ -119,7 +112,7 @@ value:
                     email: abc@xyz.com
               price:
                 currency: INR
-                value: '300.00'
+                value: '250.00'
               quantity:
                 available:
                   measure:
@@ -138,15 +131,12 @@ value:
                 - F2
               location_ids:
                 - L1
-              payment_ids:
-                - PY2
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
                       code: Pending
                   reason_required: false
                   cancellation_fee:
-                    percentage: '0'
                     amount:
                       currency: IND
                       value: '0'
@@ -155,7 +145,6 @@ value:
                       code: Awarded
                   reason_required: false
                   cancellation_fee:
-                    percentage: '10'
                     amount:
                       currency: IND
                       value: '100'

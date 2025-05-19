@@ -19,18 +19,20 @@ value:
   message:
     order:
       id: O1
-      status: In-Progress
+      status: Created
       provider:
         id: P1
         locations:
           - id: L1
-        rateable: true
       items:
         - id: I1
           location_ids:
             - L1
           category_ids:
             - AGR11-1001
+          price:
+            currency: INR
+            offered_value: '250.00'
           quantity:
             selected:
               count: 100
@@ -70,7 +72,7 @@ value:
                 label: confirmed
                 range:
                   start: '2024-06-09T22:00:00.000Z'
-                  end: '2024-06-10T02:00:00.000Z'
+                  end: '2024-06-30T00:00:00.000Z'
               person:
                 name: Ramu
               instructions:
@@ -82,7 +84,6 @@ value:
                 valid_from: '2024-06-10T22:00:00Z'
                 valid_to: '2024-06-10T23:00:00Z'
                 status: valid
-          rateable: true
       quote:
         price:
           currency: INR
@@ -162,7 +163,7 @@ value:
         ttl: P1D
       payments:
         - id: PY1
-          collected_by: BAP
+          collected_by: BPP
           url: https://abc.com/take_payment
           params:
             amount: '5000.00'
@@ -171,6 +172,9 @@ value:
             virtual_payment_address: xxx@xxxx
           status: PAID
           type: PRE-FULFILLMENT
+          time:
+            label: validity
+            timestamp: '2024-06-10T22:00:00.000Z'
           tags:
             - descriptor:
                 code: Settlement_Details
@@ -194,7 +198,7 @@ value:
                     code: UPI_Address
                   value: xxxxxxx
         - id: PY2
-          collected_by: BAP
+          collected_by: BPP
           params:
             amount: '25050.00'
             currency: INR
@@ -230,7 +234,6 @@ value:
               code: Pending
           reason_required: false
           cancellation_fee:
-            percentage: '0'
             amount:
               currency: IND
               value: '0'
@@ -239,7 +242,6 @@ value:
               code: Awarded
           reason_required: false
           cancellation_fee:
-            percentage: '10'
             amount:
               currency: IND
               value: '100'

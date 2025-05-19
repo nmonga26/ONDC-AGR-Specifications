@@ -30,8 +30,7 @@
           {
             "id": "L1"
           }
-        ],
-        "rateable": true
+        ]
       },
       "items": [
         {
@@ -422,8 +421,7 @@
                 "status": "valid"
               }
             }
-          ],
-          "rateable": true
+          ]
         }
       ],
       "quote": {
@@ -612,11 +610,7 @@
           },
           "reason_required": false,
           "cancellation_fee": {
-            "percentage": "0",
-            "amount": {
-              "currency": "IND",
-              "value": "0"
-            }
+            "percentage": "0"
           }
         },
         {
@@ -627,11 +621,7 @@
           },
           "reason_required": false,
           "cancellation_fee": {
-            "percentage": "10",
-            "amount": {
-              "currency": "IND",
-              "value": "100"
-            }
+            "percentage": "10"
           }
         },
         {
@@ -642,11 +632,7 @@
           },
           "reason_required": false,
           "cancellation_fee": {
-            "percentage": "10",
-            "amount": {
-              "currency": "IND",
-              "value": "100"
-            }
+            "percentage": "10"
           }
         }
       ],

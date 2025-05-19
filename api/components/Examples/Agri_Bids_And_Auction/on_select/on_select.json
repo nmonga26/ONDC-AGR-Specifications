@@ -23,7 +23,12 @@
   "message": {
     "order": {
       "provider": {
-        "id": "P1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
       "items": [
         {
@@ -49,21 +54,41 @@
                 "label": "confirmed",
                 "range": {
                   "start": "2024-06-09T22:00:00.000Z",
-                  "end": "2024-06-10T02:00:00.000Z"
+                  "end": "2024-06-30T00:00:00.000Z"
                 }
               }
             }
           ]
         }
       ],
-      "payments": [
+      "cancellation_terms": [
         {
-          "type": "PRE-FULFILLMENT",
-          "collected_by": "BAP"
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Pending"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "amount": {
+              "currency": "IND",
+              "value": "0"
+            }
+          }
         },
         {
-          "type": "ON-FULFILLMENT",
-          "collected_by": "BAP"
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "Awarded"
+            }
+          },
+          "reason_required": false,
+          "cancellation_fee": {
+            "amount": {
+              "currency": "IND",
+              "value": "100"
+            }
+          }
         }
       ]
     }

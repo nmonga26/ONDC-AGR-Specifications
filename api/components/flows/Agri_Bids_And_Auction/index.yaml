@@ -201,7 +201,7 @@ steps:
     api: on_update (Awarded)
     description: Seller app sends bids status if Awarded
     example:
-      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_update/on_update_awarded.yaml"
+      $ref: "../../Examples/Agri_Bids_And_Auction_yaml/on_update/on_update_requote_awarded.yaml"
   - summary: Seller app sends bids status if Not Awarded
     api: on_update (Not Awarded)
     description: Seller app sends bids status as cancel if Not Awarded

@@ -25,11 +25,22 @@
       "id": "O1",
       "status": "In-Progress",
       "provider": {
-        "id": "P1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
       "items": [
         {
           "id": "I1",
+          "location_ids": [
+            "L1"
+          ],
+          "category_ids": [
+            "AGR11-1001"
+          ],
           "price": {
             "currency": "INR",
             "offered_value": "250.00"
@@ -78,7 +89,7 @@
       "payments": [
         {
           "id": "PY1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "url": "https://abc.com/take_payment",
           "params": {
             "amount": "5000.00",
@@ -88,6 +99,10 @@
           },
           "status": "PAID",
           "type": "PRE-FULFILLMENT",
+          "time": {
+            "label": "validity",
+            "timestamp": "2024-06-10T22:00:00.000Z"
+          },
           "tags": [
             {
               "descriptor": {
@@ -136,7 +151,7 @@
         },
         {
           "id": "PY2",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "params": {
             "amount": "25050.00",
             "currency": "INR",
@@ -145,6 +160,10 @@
           },
           "status": "NOT-PAID",
           "type": "ON-FULFILLMENT",
+          "time": {
+            "label": "validity",
+            "timestamp": "2024-06-15T23:59:59.000Z"
+          },
           "tags": [
             {
               "descriptor": {
@@ -225,7 +244,7 @@
                 "label": "confirmed",
                 "range": {
                   "start": "2024-06-09T22:00:00.000Z",
-                  "end": "2024-06-10T02:00:00.000Z"
+                  "end": "2024-06-30T00:00:00.000Z"
                 }
               },
               "person": {
@@ -243,8 +262,7 @@
                 "status": "valid"
               }
             }
-          ],
-          "rateable": true
+          ]
         }
       ],
       "quote": {

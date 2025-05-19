@@ -118,16 +118,6 @@
           ]
         }
       ],
-      "payments": [
-        {
-          "type": "PRE-FULFILLMENT",
-          "collected_by": "BAP"
-        },
-        {
-          "type": "ON-FULFILLMENT",
-          "collected_by": "BAP"
-        }
-      ],
       "tags": [
         {
           "descriptor": {

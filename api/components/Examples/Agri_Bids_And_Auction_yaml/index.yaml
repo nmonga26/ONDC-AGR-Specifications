@@ -40,6 +40,7 @@ on_search:
     - $ref: "./on_search/on_search.yaml"
     - $ref: "./on_search/on_search_close_bid.yaml"
     - $ref: "./on_search/on_search_negotiation.yaml"
+    - $ref: "./on_search/on_search_price_unsociated.yaml"
 on_select:
   examples:
     - $ref: "./on_select/on_select.yaml"
@@ -48,17 +49,21 @@ on_select:
     - $ref: "./on_select/on_select_negotiation_reject.yaml"
     - $ref: "./on_select/on_select_negotiation_attributes_start.yaml"
     - $ref: "./on_select/on_select_negotiation_attributes_end.yaml"
+    - $ref: "./on_select/on_select_close_bid.yaml"
 on_init:
   examples:
     - $ref: "./on_init/on_init.yaml"
     - $ref: "./on_init/on_init_bid_placement.yaml"
     - $ref: "./on_init/on_init_negotiation.yaml"
     - $ref: "./on_init/on_init_attributes_negotiation.yaml"
+    - $ref: "./on_init/on_init_bid_placement_close_bid.yaml"
+    - $ref: "./on_init/on_init_close_bid.yaml"
 on_confirm:
   examples:
     - $ref: "./on_confirm/on_confirm.yaml"
     - $ref: "./on_confirm/on_confirm_negotiation.yaml"
     - $ref: "./on_confirm/on_confirm_attributes_negotiation.yaml"
+    - $ref: "./on_confirm/on_confirm_close_bid.yaml"
 on_status:
   examples:
     - $ref: "./on_status/on_status.yaml"
@@ -84,4 +89,5 @@ on_update:
     - $ref: "./on_update/on_update_not_awarded.yaml"
     - $ref: "./on_update/on_update_requote_lower.yaml"
     - $ref: "./on_update/on_update_status.yaml"
+    - $ref: "./on_update/on_update_requote_awarded.yaml"
 

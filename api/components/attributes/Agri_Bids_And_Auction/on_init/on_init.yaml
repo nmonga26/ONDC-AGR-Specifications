@@ -74,12 +74,12 @@ message:
         reference: if any
       email:
         description: email address for billing
-        required: required
+        required: optional
         usage: "nobody@nomail.com"
         reference: if any
       phone:
         description: phone number for billing
-        required: required
+        required: optional
         usage: "9886098860"
         reference: if any
     fulfillments:

@@ -26,7 +26,12 @@
       "id": "O1",
       "status": "In-Progress",
       "provider": {
-        "id": "P1"
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
       },
       "items": [
         {
@@ -191,7 +196,7 @@
       "payments": [
         {
           "id": "PY1",
-          "collected_by": "BAP",
+          "collected_by": "BPP",
           "url": "https://abc.com/take_payment",
           "params": {
             "amount": "5000.00",
@@ -356,8 +361,7 @@
                 "status": "valid"
               }
             }
-          ],
-          "rateable": true
+          ]
         }
       ]
     }

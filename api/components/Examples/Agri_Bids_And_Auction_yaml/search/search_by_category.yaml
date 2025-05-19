@@ -21,7 +21,7 @@ value:
           code: AGR11-*
       payment:
         type: ON-FULFILLMENT
-        collected_by: BAP
+        collected_by: BPP
       tags:
         - descriptor:
             code: BAP_TERMS

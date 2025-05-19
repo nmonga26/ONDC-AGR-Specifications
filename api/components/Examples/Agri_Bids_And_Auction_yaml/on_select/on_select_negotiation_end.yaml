@@ -20,6 +20,8 @@ value:
     order:
       provider:
         id: P1
+        locations:
+          - id: L1
       items:
         - id: I1
           fulfillment_ids:
@@ -255,8 +257,3 @@ value:
                       code: type
                     value: misc
         ttl: P1D
-      payments:
-        - type: PRE-FULFILLMENT
-          collected_by: BAP
-        - type: ON-FULFILLMENT
-          collected_by: BAP

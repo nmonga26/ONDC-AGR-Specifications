@@ -94,14 +94,6 @@
           ]
         }
       ],
-      "payments": [
-        {
-          "type": "PRE-FULFILLMENT"
-        },
-        {
-          "type": "ON-FULFILLMENT"
-        }
-      ],
       "tags": [
         {
           "descriptor": {
