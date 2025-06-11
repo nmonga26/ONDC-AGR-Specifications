@@ -3,7 +3,7 @@ value:
     domain: ONDC:AGR11
     location:
       city:
-        code: std:080
+        code: '*'
       country:
         code: IND
     action: on_search

@@ -33,6 +33,9 @@ value:
           quantity:
             selected:
               count: 100
+              measure:
+                unit: kg
+                value: '50'
           payment_ids:
             - PY2
       quote:
@@ -49,6 +52,9 @@ value:
               quantity:
                 selected:
                   count: 100
+                  measure:
+                    unit: kg
+                    value: '50'
               price:
                 currency: INR
                 value: '250.00'

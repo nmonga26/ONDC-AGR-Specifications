@@ -34,6 +34,9 @@ value:
           quantity:
             selected:
               count: 100
+              measure:
+                unit: kg
+                value: '50'
       fulfillments:
         - id: F1
           state:
@@ -96,6 +99,9 @@ value:
               quantity:
                 selected:
                   count: 100
+                  measure:
+                    unit: kg
+                    value: '50'
               price:
                 currency: INR
                 value: '250.00'

@@ -38,7 +38,20 @@
           ],
           "category_ids": [
             "AGR11-1001"
-          ]
+          ],
+          "price": {
+            "currency": "INR",
+            "offered_value": "250.00"
+          },
+          "quantity": {
+            "selected": {
+              "count": 100,
+              "measure": {
+                "unit": "kg",
+                "value": "50"
+              }
+            }
+          }
         }
       ],
       "fulfillments": [

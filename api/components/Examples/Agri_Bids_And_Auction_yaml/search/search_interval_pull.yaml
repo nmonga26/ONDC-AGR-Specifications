@@ -16,9 +16,6 @@ value:
     ttl: PT30S
   message:
     intent:
-      payment:
-        type: ON-FULFILLMENT
-        collected_by: BPP
       tags:
         - code: CATALOG_INC
           list:
@@ -32,6 +29,10 @@ value:
             code: BAP_TERMS
           display: false
           list:
+            - descriptor:
+                name: Static Terms (Transaction Level)
+                code: STATIC_TERMS
+              value: https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
             - descriptor:
                 code: FINDER_FEE_TYPE
               value: percent

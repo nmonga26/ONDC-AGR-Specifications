@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "Created",
+      "status": "Accepted",
       "provider": {
         "id": "P1",
         "locations": [
@@ -47,7 +47,11 @@
           },
           "quantity": {
             "selected": {
-              "count": 100
+              "count": 100,
+              "measure": {
+                "unit": "kg",
+                "value": "50"
+              }
             }
           }
         }
@@ -135,7 +139,11 @@
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": 100
+                  "count": 100,
+                  "measure": {
+                    "unit": "kg",
+                    "value": "50"
+                  }
                 }
               },
               "price": {
