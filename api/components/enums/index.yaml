@@ -30,7 +30,6 @@ on_search:
             AUCTION_SPECIFICATION:
               TYPE_OF_AUCTION:
                 $ref: "./tags.yaml#/AUCTION_SPECIFICATION/TYPE_OF_AUCTION"
-        items:
           time:
             label:
                 $ref: "./item.yaml#/time/label"

@@ -38,6 +38,9 @@ value:
           quantity:
             selected:
               count: 100
+              measure:
+                unit: kg
+                value: '50'
           tags:
             - descriptor:
                 code: NEGOTIATION_BAP
@@ -245,6 +248,9 @@ value:
               quantity:
                 selected:
                   count: 100
+                  measure:
+                    unit: kg
+                    value: '50'
               price:
                 currency: INR
                 value: '270.00'

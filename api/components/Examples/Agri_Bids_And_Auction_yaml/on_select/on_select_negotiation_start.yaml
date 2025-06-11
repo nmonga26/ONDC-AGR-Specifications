@@ -33,6 +33,9 @@ value:
           quantity:
             selected:
               count: 100
+              measure:
+                unit: kg
+                value: '50'
           price:
             currency: INR
             value: '280.00'
@@ -207,6 +210,9 @@ value:
               quantity:
                 selected:
                   count: 100
+                  measure:
+                    unit: kg
+                    value: '50'
               price:
                 currency: INR
                 value: '280.00'

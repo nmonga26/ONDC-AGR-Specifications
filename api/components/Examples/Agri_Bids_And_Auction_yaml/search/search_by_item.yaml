@@ -19,14 +19,15 @@ value:
       item:
         descriptor:
           name: Wheat (Auction)
-      payment:
-        type: ON-FULFILLMENT
-        collected_by: BPP
       tags:
         - descriptor:
             code: BAP_TERMS
           display: false
           list:
+            - descriptor:
+                name: Static Terms (Transaction Level)
+                code: STATIC_TERMS
+              value: https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
             - descriptor:
                 code: FINDER_FEE_TYPE
               value: percent
