@@ -240,7 +240,7 @@
                 }
               ],
               "time": {
-                "label": "validity",
+                "label": "disabled",
                 "range": {
                   "start": "2024-06-10T00:00:00.000Z",
                   "end": "2024-06-30T00:00:00.000Z"

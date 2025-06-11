@@ -10,7 +10,7 @@ message:
     state:
       description: status of the order, enum - "In-progress", "Cancelled"
       required: required
-      usage: "Created"
+      usage: "Accepted"
       reference: if any
     provider:
       parent: true
