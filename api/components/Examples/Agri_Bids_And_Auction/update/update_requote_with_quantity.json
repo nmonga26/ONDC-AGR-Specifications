@@ -36,13 +36,23 @@
       "items": [
         {
           "id": "I1",
+          "location_ids": [
+            "L1"
+          ],
+          "category_ids": [
+            "AGR11-1001"
+          ],
           "price": {
             "currency": "INR",
             "offered_value": "300.00"
           },
           "quantity": {
             "selected": {
-              "count": 100
+              "count": 110,
+              "measure": {
+                "unit": "kg",
+                "value": "50"
+              }
             }
           }
         }

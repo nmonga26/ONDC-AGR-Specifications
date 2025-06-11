@@ -36,6 +36,12 @@
       "items": [
         {
           "id": "I1",
+          "location_ids": [
+            "L1"
+          ],
+          "category_ids": [
+            "AGR11-1001"
+          ],
           "price": {
             "currency": "INR",
             "offered_value": "300.00"

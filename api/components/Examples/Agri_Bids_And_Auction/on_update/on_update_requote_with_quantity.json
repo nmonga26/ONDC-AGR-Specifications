@@ -47,7 +47,7 @@
           },
           "quantity": {
             "selected": {
-              "count": 100,
+              "count": 110,
               "measure": {
                 "unit": "kg",
                 "value": "50"
@@ -220,20 +220,20 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "35050.00"
+          "value": "38050.00"
         },
         "breakup": [
           {
             "title": "Wheat (Auction)",
             "price": {
               "currency": "INR",
-              "value": "35000.00"
+              "value": "33000.00"
             },
             "item": {
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": 100,
+                  "count": 110,
                   "measure": {
                     "unit": "kg",
                     "value": "50"
