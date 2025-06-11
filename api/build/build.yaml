@@ -4018,14 +4018,6 @@ x-flows:
           the path of the attribute mentioned in the "code".
           "NEGOTIATION_SPECIFICATION" must only be sent when the seller wants to
           allow negotiation over the item attributes/price/quantity.
-        explanation: >-
-          <b>For negotiation</b>: A seller can send a catalog and allow
-          negotiation for a particular item over price, quanity and commodity
-          specification. All the terms that are negotiable among these three
-          must be specified in the "NEGOTIATION_SPECIFICATION" tag group, with
-          the path of the attribute mentioned in the "code".
-          "NEGOTIATION_SPECIFICATION" must only be sent when the seller wants to
-          allow negotiation over the item attributes/price/quantity.
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -4045,21 +4037,6 @@ x-flows:
             Note Over BA,SA1: Buyer now has the option to choose the <br>product from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all the avilable product <br>options from sellers
       - description: Selection and Negotiation
-        explanation: >-
-          <b>For negotiation (as a Buyer)</b>: A buyer can change the value of
-          the attributes whose path was passed by the seller in the
-          "NEGOTIATION_SPECIFICATION" tag group in a new tag group
-          "NEGOTIATION_BAP". This tag group can only contain codes that were
-          previously passed in "NEGOTIATION_SPECIFICATION".<br><b>For
-          negotiation (as a Seller)</b>: The seller can reject the offer by
-          sending error code in /on_select or counter-negotiate or accept the
-          offer. For counter-negotiation, seller needs to add the same attribute
-          code path in the "NEGOTIATION_BPP" tag group. The values of the code
-          must differ from values proposed by buyer in "NEGOTIATION_BAP". For
-          accepting an offer, a seller will send the same exact values as buyer
-          in the "NEGOTIATON_BPP" tag group and if both of these tag groups are
-          matched, the negotiation can be termed as success. A final quote
-          should be shared by the seller in the same /on_select.
         explanation: >-
           <b>For negotiation (as a Buyer)</b>: A buyer can change the value of
           the attributes whose path was passed by the seller in the
@@ -4119,7 +4096,6 @@ x-flows:
             BA ->> SA: **/confirm** - Buyer confirms the order
             SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID for negotiated placed order
             BA ->> B: Confirms the order
-            BA ->> B: Confirms the order
       - description: Fulfillment
         mermaidGraph: |-
           sequenceDiagram
@@ -4130,7 +4106,6 @@ x-flows:
             B ->> BA: Checks the order status
             BA ->> SA: **/status** - Enquire order status
             SA ->> BA: **/on_status** - Seller responds with the current order status
-            BA ->> B: Updates the latest status
             BA ->> B: Updates the latest status
     reference: if any
     steps:
@@ -4730,8 +4705,6 @@ x-flows:
                   id: P1
                   locations:
                     - id: L1
-                  locations:
-                    - id: L1
                 items:
                   - id: I1
                     fulfillment_ids:
@@ -5079,8 +5052,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -5451,8 +5422,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -8074,14 +8043,6 @@ x-flows:
           the path of the attribute mentioned in the "code".
           "NEGOTIATION_SPECIFICATION" must only be sent when the seller wants to
           allow negotiation over the item attributes/price/quantity.
-        explanation: >-
-          <b>For negotiation</b>: A seller can send a catalog and allow
-          negotiation for a particular item over price, quanity and commodity
-          specification. All the terms that are negotiable among these three
-          must be specified in the "NEGOTIATION_SPECIFICATION" tag group, with
-          the path of the attribute mentioned in the "code".
-          "NEGOTIATION_SPECIFICATION" must only be sent when the seller wants to
-          allow negotiation over the item attributes/price/quantity.
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -8101,21 +8062,6 @@ x-flows:
             Note Over BA,SA1: Buyer now has the option to choose the <br>product from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all the avilable product <br>options from sellers
       - description: Selection and Negotiation
-        explanation: >-
-          <b>For negotiation (as a Buyer)</b>: A buyer can change the value of
-          the attributes whose path was passed by the seller in the
-          "NEGOTIATION_SPECIFICATION" tag group in a new tag group
-          "NEGOTIATION_BAP". This tag group can only contain codes that were
-          previously passed in "NEGOTIATION_SPECIFICATION".<br><b>For
-          negotiation (as a Seller)</b>: The seller can reject the offer by
-          sending error code in /on_select or counter-negotiate or accept the
-          offer. For counter-negotiation, seller needs to add the same attribute
-          code path in the "NEGOTIATION_BPP" tag group. The values of the code
-          must differ from values proposed by buyer in "NEGOTIATION_BAP". For
-          accepting an offer, a seller will send the same exact values as buyer
-          in the "NEGOTIATON_BPP" tag group and if both of these tag groups are
-          matched, the negotiation can be termed as success. A final quote
-          should be shared by the seller in the same /on_select.
         explanation: >-
           <b>For negotiation (as a Buyer)</b>: A buyer can change the value of
           the attributes whose path was passed by the seller in the
@@ -8175,7 +8121,6 @@ x-flows:
             BA ->> SA: **/confirm** - Buyer confirms the order
             SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID for negotiated placed order
             BA ->> B: Confirms the order
-            BA ->> B: Confirms the order
       - description: Fulfillment
         mermaidGraph: |-
           sequenceDiagram
@@ -8186,7 +8131,6 @@ x-flows:
             B ->> BA: Checks the order status
             BA ->> SA: **/status** - Enquire order status
             SA ->> BA: **/on_status** - Seller responds with the current order status
-            BA ->> B: Updates the latest status
             BA ->> B: Updates the latest status
     reference: if any
     steps:
@@ -8310,8 +8254,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -8665,8 +8607,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -9044,8 +8984,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -9433,7 +9371,6 @@ x-flows:
                           range:
                             start: '2024-06-09T22:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                         customer:
                           person:
                             name: Ramu
@@ -9509,7 +9446,6 @@ x-flows:
                   ttl: P1D
                 payments:
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '27050.00'
@@ -11682,14 +11618,6 @@ x-flows:
           the path of the attribute mentioned in the "code".
           "NEGOTIATION_SPECIFICATION" must only be sent when the seller wants to
           allow negotiation over the item attributes/price/quantity.
-        explanation: >-
-          <b>For negotiation</b>: A seller can send a catalog and allow
-          negotiation for a particular item over price, quanity and commodity
-          specification. All the terms that are negotiable among these three
-          must be specified in the "NEGOTIATION_SPECIFICATION" tag group, with
-          the path of the attribute mentioned in the "code".
-          "NEGOTIATION_SPECIFICATION" must only be sent when the seller wants to
-          allow negotiation over the item attributes/price/quantity.
         mermaidGraph: |-
           sequenceDiagram
             participant B as Buyer
@@ -11709,21 +11637,6 @@ x-flows:
             Note Over BA,SA1: Buyer now has the option to choose the <br>product from either Seller 1 or Seller 2 or both
             BA ->> B: Shows all the avilable product <br>options from sellers
       - description: Selection and Negotiation
-        explanation: >-
-          <b>For negotiation (as a Buyer)</b>: A buyer can change the value of
-          the attributes whose path was passed by the seller in the
-          "NEGOTIATION_SPECIFICATION" tag group in a new tag group
-          "NEGOTIATION_BAP". This tag group can only contain codes that were
-          previously passed in "NEGOTIATION_SPECIFICATION".<br><b>For
-          negotiation (as a Seller)</b>: The seller can reject the offer by
-          sending error code in /on_select or counter-negotiate or accept the
-          offer. For counter-negotiation, seller needs to add the same attribute
-          code path in the "NEGOTIATION_BPP" tag group. The values of the code
-          must differ from values proposed by buyer in "NEGOTIATION_BAP". For
-          accepting an offer, a seller will send the same exact values as buyer
-          in the "NEGOTIATON_BPP" tag group and if both of these tag groups are
-          matched, the negotiation can be termed as success. A final quote
-          should be shared by the seller in the same /on_select.
         explanation: >-
           <b>For negotiation (as a Buyer)</b>: A buyer can change the value of
           the attributes whose path was passed by the seller in the
@@ -11783,7 +11696,6 @@ x-flows:
             BA ->> SA: **/confirm** - Buyer confirms the order
             SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID for negotiated placed order
             BA ->> B: Confirms the order
-            BA ->> B: Confirms the order
       - description: Fulfillment
         mermaidGraph: |-
           sequenceDiagram
@@ -11794,7 +11706,6 @@ x-flows:
             B ->> BA: Checks the order status
             BA ->> SA: **/status** - Enquire order status
             SA ->> BA: **/on_status** - Seller responds with the current order status
-            BA ->> B: Updates the latest status
             BA ->> B: Updates the latest status
     reference: if any
     steps:
@@ -11897,8 +11808,6 @@ x-flows:
             B ->> BA: Buyer makes the payment.
             BA -->> SA: Payment received.
             SA ->> BA: **/on_status** - Seller confirms the paymnet has been received.
-            BA -->> SA: Payment received.
-            SA ->> BA: **/on_status** - Seller confirms the paymnet has been received.
       - description: Bid Placement
         mermaidGraph: |-
           sequenceDiagram
@@ -11921,7 +11830,6 @@ x-flows:
             BA ->> SA: **/confirm** - Buyer confirms the order
             SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID with the bid state set to "Placed."
             BA ->> B: Confirms the bids
-            BA ->> B: Confirms the bids
       - description: Fulfillment
         mermaidGraph: |-
           sequenceDiagram
@@ -11932,7 +11840,6 @@ x-flows:
             B ->> BA: Checks the bid status
             BA ->> SA: **/status** - Enquire bid status <br>or maximum bid price (if open bid)
             SA ->> BA: **/on_status** - Seller responds with the highest price
-            BA ->> B: Updates the latest status
             BA ->> B: Updates the latest status
       - description: Update Requests
         mermaidGraph: |-
@@ -11975,7 +11882,6 @@ x-flows:
           Seller responds with /on_search, providing available auctions with
           their details, including floor price, Start/End Time, Bid Increment
         reference: if any
-        example: &ref_25
         example: &ref_25
           value:
             context:
@@ -12091,7 +11997,6 @@ x-flows:
                               email: abc@xyz.com
                         price:
                           currency: INR
-                          value: '250.00'
                           value: '250.00'
                         quantity:
                           available:
@@ -12440,7 +12345,6 @@ x-flows:
         description: Seller verifies the Buyer's ID whether he is allowed or not.
         reference: if any
         example: &ref_26
-        example: &ref_26
           value:
             context:
               domain: ONDC:AGR11
@@ -12463,8 +12367,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -12511,31 +12413,12 @@ x-flows:
                       amount:
                         currency: IND
                         value: '100'
-                            end: '2024-06-30T00:00:00.000Z'
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: Pending
-                    reason_required: false
-                    cancellation_fee:
-                      amount:
-                        currency: IND
-                        value: '0'
-                  - fulfillment_state:
-                      descriptor:
-                        code: Awarded
-                    reason_required: false
-                    cancellation_fee:
-                      amount:
-                        currency: IND
-                        value: '100'
       - summary: Buyer requests participation fee if required
         api: init (Participation Fee)
         description: >-
           Buyer requests participation with /init and perform Fee Requirement
           Check
         reference: if any
-        example: &ref_20
         example: &ref_20
           value:
             context:
@@ -12609,7 +12492,6 @@ x-flows:
                           range:
                             start: '2024-06-09T22:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                 tags:
                   - descriptor:
                       code: BUYER_ID
@@ -12628,7 +12510,6 @@ x-flows:
           Seller responds with /on_init, sending a payment gateway (PG) link for
           payment.
         reference: if any
-        example: &ref_27
         example: &ref_27
           value:
             context:
@@ -12652,8 +12533,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -12704,7 +12583,6 @@ x-flows:
                           range:
                             start: '2024-06-09T22:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                 quote:
                   price:
                     currency: INR
@@ -12726,7 +12604,6 @@ x-flows:
                   ttl: P1D
                 payments:
                   - id: PY1
-                    collected_by: BPP
                     collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
@@ -12916,7 +12793,6 @@ x-flows:
           shared in the intent.
         reference: if any
         example: &ref_21
-        example: &ref_21
           value:
             context:
               domain: ONDC:AGR11
@@ -12989,7 +12865,6 @@ x-flows:
                           range:
                             start: '2024-06-09T22:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                 tags:
                   - descriptor:
                       code: BUYER_ID
@@ -13004,7 +12879,6 @@ x-flows:
         api: on_init (Bid Placement)
         description: Seller acknowledges the bid placement with /on_init
         reference: if any
-        example: &ref_28
         example: &ref_28
           value:
             context:
@@ -13028,8 +12902,6 @@ x-flows:
               order:
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -13079,7 +12951,6 @@ x-flows:
                           label: confirmed
                           range:
                             start: '2024-06-09T22:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
                 quote:
                   price:
@@ -13164,7 +13035,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -13196,7 +13066,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '25050.00'
@@ -13248,7 +13117,6 @@ x-flows:
         api: confirm
         description: Buyer confirms the order with /confirm.
         example: &ref_22
-        example: &ref_22
           value:
             context:
               domain: ONDC:AGR11
@@ -13280,9 +13148,6 @@ x-flows:
                       - L1
                     category_ids:
                       - AGR11-1001
-                    price:
-                      currency: INR
-                      offered_value: '250.00'
                     price:
                       currency: INR
                       offered_value: '250.00'
@@ -13324,7 +13189,6 @@ x-flows:
                           label: confirmed
                           range:
                             start: '2024-06-09T22:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
                         customer:
                           person:
@@ -13415,7 +13279,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -13424,9 +13287,6 @@ x-flows:
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
-                    time:
-                      label: validity
-                      timestamp: '2024-06-10T22:00:00.000Z'
                     time:
                       label: validity
                       timestamp: '2024-06-10T22:00:00.000Z'
@@ -13453,7 +13313,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '25050.00'
@@ -13495,7 +13354,6 @@ x-flows:
           state set to "Placed."
         reference: if any
         example: &ref_29
-        example: &ref_29
           value:
             context:
               domain: ONDC:AGR11
@@ -13528,9 +13386,6 @@ x-flows:
                       - L1
                     category_ids:
                       - AGR11-1001
-                    price:
-                      currency: INR
-                      offered_value: '250.00'
                     price:
                       currency: INR
                       offered_value: '250.00'
@@ -13576,7 +13431,6 @@ x-flows:
                           label: confirmed
                           range:
                             start: '2024-06-09T22:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
                         person:
                           name: Ramu
@@ -13672,7 +13526,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -13681,9 +13534,6 @@ x-flows:
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
-                    time:
-                      label: validity
-                      timestamp: '2024-06-10T22:00:00.000Z'
                     time:
                       label: validity
                       timestamp: '2024-06-10T22:00:00.000Z'
@@ -13710,7 +13560,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '25050.00'
@@ -13768,7 +13617,6 @@ x-flows:
         api: on_status
         description: Seller app sends bids status update with the highest price
         example: &ref_23
-        example: &ref_23
           value:
             context:
               domain: ONDC:AGR11
@@ -13803,7 +13651,6 @@ x-flows:
                       - AGR11-1001
                     price:
                       currency: INR
-                      value: '300.00'
                       value: '300.00'
                       offered_value: '250.00'
                     quantity:
@@ -13848,7 +13695,6 @@ x-flows:
                           label: confirmed
                           range:
                             start: '2024-06-09T22:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
                         person:
                           name: Ramu
@@ -13944,7 +13790,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -13953,9 +13798,6 @@ x-flows:
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
-                    time:
-                      label: validity
-                      timestamp: '2024-06-10T22:00:00.000Z'
                     time:
                       label: validity
                       timestamp: '2024-06-10T22:00:00.000Z'
@@ -13982,7 +13824,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '25050.00'
@@ -14030,23 +13871,6 @@ x-flows:
                       amount:
                         currency: IND
                         value: '100'
-                cancellation_terms:
-                  - fulfillment_state:
-                      descriptor:
-                        code: Pending
-                    reason_required: false
-                    cancellation_fee:
-                      amount:
-                        currency: IND
-                        value: '0'
-                  - fulfillment_state:
-                      descriptor:
-                        code: Awarded
-                    reason_required: false
-                    cancellation_fee:
-                      amount:
-                        currency: IND
-                        value: '100'
                 documents:
                   - url: https://invoice_url
                     label: INVOICE
@@ -14076,14 +13900,11 @@ x-flows:
               ttl: PT30S
             message:
               update_target: items
-              update_target: items
               order:
                 id: O1
                 status: In-Progress
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -14131,14 +13952,8 @@ x-flows:
                   id: P1
                   locations:
                     - id: L1
-                  locations:
-                    - id: L1
                 items:
                   - id: I1
-                    location_ids:
-                      - L1
-                    category_ids:
-                      - AGR11-1001
                     location_ids:
                       - L1
                     category_ids:
@@ -14173,7 +13988,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -14205,7 +14019,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '30050.00'
@@ -14351,21 +14164,14 @@ x-flows:
                   id: P1
                   locations:
                     - id: L1
-                  locations:
-                    - id: L1
                 items:
                   - id: I1
                     location_ids:
                       - L1
                     category_ids:
                       - AGR11-1001
-                    location_ids:
-                      - L1
-                    category_ids:
-                      - AGR11-1001
                     price:
                       currency: INR
-                      offered_value: '300.00'
                       offered_value: '300.00'
                     quantity:
                       selected:
@@ -14394,7 +14200,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -14403,9 +14208,6 @@ x-flows:
                       virtual_payment_address: xxx@xxxx
                     status: PAID
                     type: PRE-FULFILLMENT
-                    time:
-                      label: validity
-                      timestamp: '2024-06-10T22:00:00.000Z'
                     time:
                       label: validity
                       timestamp: '2024-06-10T22:00:00.000Z'
@@ -14433,7 +14235,6 @@ x-flows:
                             value: xxxxxxx
                   - id: PY2
                     collected_by: BPP
-                    collected_by: BPP
                     params:
                       amount: '25050.00'
                       currency: INR
@@ -14441,9 +14242,6 @@ x-flows:
                       virtual_payment_address: xxx@xxxx
                     status: NOT-PAID
                     type: ON-FULFILLMENT
-                    time:
-                      label: validity
-                      timestamp: '2024-06-15T23:59:59.000Z'
                     time:
                       label: validity
                       timestamp: '2024-06-15T23:59:59.000Z'
@@ -14493,7 +14291,6 @@ x-flows:
                           label: confirmed
                           range:
                             start: '2024-06-09T22:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
                         person:
                           name: Ramu
@@ -14590,7 +14387,6 @@ x-flows:
         api: on_update (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
         example: &ref_24
-        example: &ref_24
           value:
             context:
               domain: ONDC:AGR11
@@ -14617,14 +14413,8 @@ x-flows:
                   id: P1
                   locations:
                     - id: L1
-                  locations:
-                    - id: L1
                 items:
                   - id: I1
-                    location_ids:
-                      - L1
-                    category_ids:
-                      - AGR11-1001
                     location_ids:
                       - L1
                     category_ids:
@@ -14659,7 +14449,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -14691,7 +14480,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '25050.00'
@@ -14726,7 +14514,6 @@ x-flows:
                   - id: F1
                     state:
                       descriptor:
-                        code: Not_Awarded
                         code: Not_Awarded
                 quote:
                   price:
@@ -15048,7 +14835,6 @@ x-flows:
                               email: abc@xyz.com
                         price:
                           currency: INR
-                          value: '250.00'
                           value: '250.00'
                         quantity:
                           available:
@@ -15405,7 +15191,6 @@ x-flows:
           Check
         reference: if any
         example: *ref_20
-        example: *ref_20
       - summary: >-
           Seller responds with /on_init, sending a payment gateway (PG) link for
           payment.
@@ -15560,7 +15345,6 @@ x-flows:
           Buyer sends /init, indicating bid placement. The bid price will be
           shared in the intent.
         reference: if any
-        example: *ref_21
         example: *ref_21
       - summary: Seller acknowledges the bid placement with /on_init
         api: on_init (Bid Placement)
@@ -15799,7 +15583,6 @@ x-flows:
       - summary: Buyer confirms the order with /confirm.
         api: confirm
         description: Buyer confirms the order with /confirm.
-        example: *ref_22
         example: *ref_22
       - summary: >-
           Seller responds with /on_confirm, creating an Order ID with the bid
@@ -16069,7 +15852,6 @@ x-flows:
         api: on_status
         description: Seller app sends bids status update with the highest price
         example: *ref_23
-        example: *ref_23
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
@@ -16323,7 +16105,6 @@ x-flows:
         api: on_update (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
         example: *ref_24
-        example: *ref_24
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Buyer not
       satisfied with the quality)
@@ -16467,7 +16248,6 @@ x-flows:
           their details, including floor price, Start/End Time, Bid Increment
         reference: if any
         example: *ref_25
-        example: *ref_25
       - summary: Buyer sends a /select request to Seller, along with the Buyer's ID.
         api: select
         description: Buyer sends a /select request to Seller, along with the Buyer's ID.
@@ -16478,14 +16258,12 @@ x-flows:
         description: Seller verifies the Buyer's ID whether he is allowed or not.
         reference: if any
         example: *ref_26
-        example: *ref_26
       - summary: Buyer requests participation fee if required
         api: init (Participation Fee)
         description: >-
           Buyer requests participation with /init and perform Fee Requirement
           Check
         reference: if any
-        example: *ref_20
         example: *ref_20
       - summary: >-
           Seller responds with /on_init, sending a payment gateway (PG) link for
@@ -16496,7 +16274,6 @@ x-flows:
           payment.
         reference: if any
         example: *ref_27
-        example: *ref_27
       - summary: >-
           Buyer sends /init, indicating bid placement. The bid price will be
           shared in the intent.
@@ -16506,17 +16283,14 @@ x-flows:
           shared in the intent.
         reference: if any
         example: *ref_21
-        example: *ref_21
       - summary: Seller acknowledges the bid placement with /on_init
         api: on_init (Bid Placement)
         description: Seller acknowledges the bid placement with /on_init
         reference: if any
         example: *ref_28
-        example: *ref_28
       - summary: Buyer confirms the order with /confirm.
         api: confirm
         description: Buyer confirms the order with /confirm.
-        example: *ref_22
         example: *ref_22
       - summary: >-
           Seller responds with /on_confirm, creating an Order ID with the bid
@@ -16527,7 +16301,6 @@ x-flows:
           state set to "Placed."
         reference: if any
         example: *ref_29
-        example: *ref_29
       - summary: Buyer requests for the status of the bid
         api: status
         description: Buyer requests for the status of the bid
@@ -16536,16 +16309,13 @@ x-flows:
         api: on_status
         description: Seller app sends bids status update with the highest price
         example: *ref_23
-        example: *ref_23
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
         example: *ref_30
-        example: *ref_30
       - summary: Seller app sends bids status if Not Awarded
         api: on_update (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_24
         example: *ref_24
       - summary: Buyer not satisfied with the quality
         api: cancel (Not stisfied)
@@ -16639,7 +16409,6 @@ x-flows:
                           label: confirmed
                           range:
                             start: '2024-06-09T22:00:00.000Z'
-                            end: '2024-06-30T00:00:00.000Z'
                             end: '2024-06-30T00:00:00.000Z'
                         person:
                           name: Ramu
@@ -16747,7 +16516,6 @@ x-flows:
                 payments:
                   - id: PY1
                     collected_by: BPP
-                    collected_by: BPP
                     url: https://abc.com/take_payment
                     params:
                       amount: '5000.00'
@@ -16779,7 +16547,6 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                   - id: PY2
-                    collected_by: BPP
                     collected_by: BPP
                     params:
                       amount: '25050.00'
@@ -16840,8 +16607,6 @@ x-flows:
                 status: In-Progress
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -17065,8 +16830,6 @@ x-flows:
                 status: In-Progress
                 provider:
                   id: P1
-                  locations:
-                    - id: L1
                   locations:
                     - id: L1
                 items:
@@ -17398,7 +17161,6 @@ x-flows:
           their details, including floor price, Start/End Time, Bid Increment
         reference: if any
         example: *ref_25
-        example: *ref_25
       - summary: Buyer sends a /select request to Seller, along with the Buyer's ID.
         api: select
         description: Buyer sends a /select request to Seller, along with the Buyer's ID.
@@ -17409,14 +17171,12 @@ x-flows:
         description: Seller verifies the Buyer's ID whether he is allowed or not.
         reference: if any
         example: *ref_26
-        example: *ref_26
       - summary: Buyer requests participation fee if required
         api: init (Participation Fee)
         description: >-
           Buyer requests participation with /init and perform Fee Requirement
           Check
         reference: if any
-        example: *ref_20
         example: *ref_20
       - summary: >-
           Seller responds with /on_init, sending a payment gateway (PG) link for
@@ -17427,7 +17187,6 @@ x-flows:
           payment.
         reference: if any
         example: *ref_27
-        example: *ref_27
       - summary: >-
           Buyer sends /init, indicating bid placement. The bid price will be
           shared in the intent.
@@ -17437,17 +17196,14 @@ x-flows:
           shared in the intent.
         reference: if any
         example: *ref_21
-        example: *ref_21
       - summary: Seller acknowledges the bid placement with /on_init
         api: on_init (Bid Placement)
         description: Seller acknowledges the bid placement with /on_init
         reference: if any
         example: *ref_28
-        example: *ref_28
       - summary: Buyer confirms the order with /confirm.
         api: confirm
         description: Buyer confirms the order with /confirm.
-        example: *ref_22
         example: *ref_22
       - summary: >-
           Seller responds with /on_confirm, creating an Order ID with the bid
@@ -17458,7 +17214,6 @@ x-flows:
           state set to "Placed."
         reference: if any
         example: *ref_29
-        example: *ref_29
       - summary: Buyer requests for the status of the bid
         api: status
         description: Buyer requests for the status of the bid
@@ -17467,23 +17222,19 @@ x-flows:
         api: on_status
         description: Seller app sends bids status update with the highest price
         example: *ref_23
-        example: *ref_23
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
         example: *ref_30
-        example: *ref_30
       - summary: Seller app sends bids status if Not Awarded
         api: on_update (Not Awarded)
         description: Seller app sends bids status as cancel if Not Awarded
-        example: *ref_24
         example: *ref_24
       - summary: Seller app sends bids status if Not Awarded
         api: on_update (Not Awarded)
         description: >-
           Seller app sends bids status as cancel if Not Awarded even after the
           bids is awarded previously due to payment failiure
-        example: *ref_24
         example: *ref_24
   - summary: >-
       Agricultural product - Bids and Auction for a Commodity (Search and
@@ -18677,7 +18428,6 @@ x-flows:
                         price:
                           currency: INR
                           value: '250.00'
-                          value: '250.00'
                         quantity:
                           available:
                             measure:
@@ -18966,14 +18716,12 @@ x-flows:
         description: Seller verifies the Buyer's ID whether he is allowed or not.
         reference: if any
         example: *ref_26
-        example: *ref_26
       - summary: Buyer requests participation fee if required
         api: init (Participation Fee)
         description: >-
           Buyer requests participation with /init and perform Fee Requirement
           Check
         reference: if any
-        example: *ref_20
         example: *ref_20
       - summary: >-
           Seller responds with /on_init, sending a payment gateway (PG) link for
@@ -18984,7 +18732,6 @@ x-flows:
           payment.
         reference: if any
         example: *ref_27
-        example: *ref_27
       - summary: >-
           Buyer sends /init, indicating bid placement. The bid price will be
           shared in the intent.
@@ -18994,17 +18741,14 @@ x-flows:
           shared in the intent.
         reference: if any
         example: *ref_21
-        example: *ref_21
       - summary: Seller acknowledges the bid placement with /on_init
         api: on_init (Bid Placement)
         description: Seller acknowledges the bid placement with /on_init
         reference: if any
         example: *ref_28
-        example: *ref_28
       - summary: Buyer confirms the order with /confirm.
         api: confirm
         description: Buyer confirms the order with /confirm.
-        example: *ref_22
         example: *ref_22
       - summary: >-
           Seller responds with /on_confirm, creating an Order ID with the bid
@@ -19015,7 +18759,6 @@ x-flows:
           state set to "Placed."
         reference: if any
         example: *ref_29
-        example: *ref_29
       - summary: Buyer requests for the status of the bid
         api: status
         description: Buyer requests for the status of the bid
@@ -19024,11 +18767,9 @@ x-flows:
         api: on_status
         description: Seller app sends bids status update with the highest price
         example: *ref_23
-        example: *ref_23
       - summary: Seller app sends bids status if Awarded
         api: on_update (Awarded)
         description: Seller app sends bids status if Awarded
-        example: *ref_30
         example: *ref_30
       - summary: Seller app sends bids status if Not Awarded
         api: on_update (Not Awarded)
@@ -20320,7 +20061,6 @@ x-examples:
                             range:
                               start: '2024-06-09T22:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                   tags:
                     - descriptor:
                         code: BUYER_ID
@@ -20403,7 +20143,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                   tags:
                     - descriptor:
@@ -20735,9 +20474,6 @@ x-examples:
                       price:
                         currency: INR
                         offered_value: '250.00'
-                      price:
-                        currency: INR
-                        offered_value: '250.00'
                       quantity:
                         selected:
                           count: 100
@@ -20776,7 +20512,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                           customer:
                             person:
@@ -20867,7 +20602,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -20876,9 +20610,6 @@ x-examples:
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
-                      time:
-                        label: validity
-                        timestamp: '2024-06-10T22:00:00.000Z'
                       time:
                         label: validity
                         timestamp: '2024-06-10T22:00:00.000Z'
@@ -20905,7 +20636,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -21022,7 +20752,6 @@ x-examples:
                             range:
                               start: '2024-06-09T22:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                           customer:
                             person:
                               name: Ramu
@@ -21098,7 +20827,6 @@ x-examples:
                     ttl: P1D
                   payments:
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '27050.00'
@@ -21201,14 +20929,11 @@ x-examples:
                 ttl: PT30S
               message:
                 update_target: items
-                update_target: items
                 order:
                   id: O1
                   status: In-Progress
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -21252,8 +20977,6 @@ x-examples:
                   status: In-Progress
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -21477,8 +21200,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
                       price:
@@ -21574,7 +21295,6 @@ x-examples:
                     ttl: P1D
                   payments:
                     - id: PY1
-                      collected_by: BPP
                       collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
@@ -22227,7 +21947,6 @@ x-examples:
                           price:
                             currency: INR
                             value: '250.00'
-                            value: '250.00'
                           quantity:
                             available:
                               measure:
@@ -22622,7 +22341,6 @@ x-examples:
                           price:
                             currency: INR
                             value: '250.00'
-                            value: '250.00'
                           quantity:
                             available:
                               measure:
@@ -22924,8 +22642,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -23197,8 +22913,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
                       location_ids:
@@ -23266,8 +22980,6 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -23558,8 +23270,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
                       fulfillment_ids:
@@ -23830,8 +23540,6 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -24106,8 +23814,6 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -24429,8 +24135,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
                       location_ids:
@@ -24479,7 +24183,6 @@ x-examples:
                             range:
                               start: '2024-06-09T22:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                   quote:
                     price:
                       currency: INR
@@ -24501,7 +24204,6 @@ x-examples:
                     ttl: P1D
                   payments:
                     - id: PY1
-                      collected_by: BPP
                       collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
@@ -24575,8 +24277,6 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
                       location_ids:
@@ -24624,7 +24324,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                   quote:
                     price:
@@ -24709,7 +24408,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -24741,7 +24439,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -24812,8 +24509,6 @@ x-examples:
                 order:
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -25515,9 +25210,6 @@ x-examples:
                       price:
                         currency: INR
                         offered_value: '250.00'
-                      price:
-                        currency: INR
-                        offered_value: '250.00'
                       quantity:
                         selected:
                           count: 100
@@ -25560,7 +25252,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                           person:
                             name: Ramu
@@ -25656,7 +25347,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -25665,9 +25355,6 @@ x-examples:
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
-                      time:
-                        label: validity
-                        timestamp: '2024-06-10T22:00:00.000Z'
                       time:
                         label: validity
                         timestamp: '2024-06-10T22:00:00.000Z'
@@ -25694,7 +25381,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -26484,7 +26170,6 @@ x-examples:
                       price:
                         currency: INR
                         value: '300.00'
-                        value: '300.00'
                         offered_value: '250.00'
                       quantity:
                         selected:
@@ -26528,7 +26213,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                           person:
                             name: Ramu
@@ -26624,7 +26308,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -26633,9 +26316,6 @@ x-examples:
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
-                      time:
-                        label: validity
-                        timestamp: '2024-06-10T22:00:00.000Z'
                       time:
                         label: validity
                         timestamp: '2024-06-10T22:00:00.000Z'
@@ -26662,7 +26342,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -26693,23 +26372,6 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
-                  cancellation_terms:
-                    - fulfillment_state:
-                        descriptor:
-                          code: Pending
-                      reason_required: false
-                      cancellation_fee:
-                        amount:
-                          currency: IND
-                          value: '0'
-                    - fulfillment_state:
-                        descriptor:
-                          code: Awarded
-                      reason_required: false
-                      cancellation_fee:
-                        amount:
-                          currency: IND
-                          value: '100'
                   cancellation_terms:
                     - fulfillment_state:
                         descriptor:
@@ -29898,7 +29560,6 @@ x-examples:
                             range:
                               start: '2024-06-09T22:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                           person:
                             name: Ramu
                           instructions:
@@ -30005,7 +29666,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -30037,7 +29697,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -30133,7 +29792,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                           person:
                             name: Ramu
@@ -30368,7 +30026,6 @@ x-examples:
                             range:
                               start: '2024-06-09T22:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                           person:
                             name: Ramu
                           instructions:
@@ -30475,7 +30132,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -30507,7 +30163,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -30568,14 +30223,8 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
-                      location_ids:
-                        - L1
-                      category_ids:
-                        - AGR11-1001
                       location_ids:
                         - L1
                       category_ids:
@@ -30610,7 +30259,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -30642,7 +30290,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '30050.00'
@@ -30785,14 +30432,8 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
-                      location_ids:
-                        - L1
-                      category_ids:
-                        - AGR11-1001
                       location_ids:
                         - L1
                       category_ids:
@@ -30827,7 +30468,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -30836,9 +30476,6 @@ x-examples:
                         virtual_payment_address: xxx@xxxx
                       status: PAID
                       type: PRE-FULFILLMENT
-                      time:
-                        label: validity
-                        timestamp: '2024-06-10T22:00:00.000Z'
                       time:
                         label: validity
                         timestamp: '2024-06-10T22:00:00.000Z'
@@ -30866,7 +30503,6 @@ x-examples:
                               value: xxxxxxx
                     - id: PY2
                       collected_by: BPP
-                      collected_by: BPP
                       params:
                         amount: '25050.00'
                         currency: INR
@@ -30874,9 +30510,6 @@ x-examples:
                         virtual_payment_address: xxx@xxxx
                       status: NOT-PAID
                       type: ON-FULFILLMENT
-                      time:
-                        label: validity
-                        timestamp: '2024-06-15T23:59:59.000Z'
                       time:
                         label: validity
                         timestamp: '2024-06-15T23:59:59.000Z'
@@ -30926,7 +30559,6 @@ x-examples:
                             label: confirmed
                             range:
                               start: '2024-06-09T22:00:00.000Z'
-                              end: '2024-06-30T00:00:00.000Z'
                               end: '2024-06-30T00:00:00.000Z'
                           person:
                             name: Ramu
@@ -31046,14 +30678,8 @@ x-examples:
                     id: P1
                     locations:
                       - id: L1
-                    locations:
-                      - id: L1
                   items:
                     - id: I1
-                      location_ids:
-                        - L1
-                      category_ids:
-                        - AGR11-1001
                       location_ids:
                         - L1
                       category_ids:
@@ -31088,7 +30714,6 @@ x-examples:
                   payments:
                     - id: PY1
                       collected_by: BPP
-                      collected_by: BPP
                       url: https://abc.com/take_payment
                       params:
                         amount: '5000.00'
@@ -31120,7 +30745,6 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                     - id: PY2
-                      collected_by: BPP
                       collected_by: BPP
                       params:
                         amount: '25050.00'
@@ -31155,7 +30779,6 @@ x-examples:
                     - id: F1
                       state:
                         descriptor:
-                          code: Not_Awarded
                           code: Not_Awarded
                   quote:
                     price:
@@ -31262,8 +30885,6 @@ x-examples:
                   status: In-Progress
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -31506,8 +31127,6 @@ x-examples:
                   status: In-Progress
                   provider:
                     id: P1
-                    locations:
-                      - id: L1
                     locations:
                       - id: L1
                   items:
@@ -34093,12 +33712,10 @@ x-attributes:
               email:
                 description: email address for billing
                 required: optional
-                required: optional
                 usage: nobody@nomail.com
                 reference: if any
               phone:
                 description: phone number for billing
-                required: optional
                 required: optional
                 usage: '9886098860'
                 reference: if any
@@ -34176,7 +33793,6 @@ x-attributes:
                       description: end time of the time slot chosen for the bid
                       required: required
                       usage: '2024-04-04T23:00:00.000Z'
-                      reference: if any
                       reference: if any
       on_init:
         parent: true
@@ -34260,12 +33876,10 @@ x-attributes:
               email:
                 description: email address for billing
                 required: optional
-                required: optional
                 usage: nobody@nomail.com
                 reference: if any
               phone:
                 description: phone number for billing
-                required: optional
                 required: optional
                 usage: '9886098860'
                 reference: if any
@@ -34698,19 +34312,6 @@ x-attributes:
                 description: Type of payment
                 required: required
                 usage: PRE-FULFILLMENT
-                reference: if any
-              time:
-                parent: true
-                label:
-                  description: Payment time validity
-                  required: optional
-                  usage: validity
-                  reference: if any
-                timestamp:
-                  description: Date time until pay the amount
-                  required: optional
-                  usage: '2024-06-10T22:00:00.000Z'
-                  reference: if any
                 reference: if any
               time:
                 parent: true
@@ -35277,19 +34878,6 @@ x-attributes:
                   required: optional
                   usage: '2024-06-10T22:00:00.000Z'
                   reference: if any
-                reference: if any
-              time:
-                parent: true
-                label:
-                  description: Payment time validity
-                  required: optional
-                  usage: validity
-                  reference: if any
-                timestamp:
-                  description: Date time until pay the amount
-                  required: optional
-                  usage: '2024-06-10T22:00:00.000Z'
-                  reference: if any
               tags:
                 descriptor:
                   code:
@@ -35457,11 +35045,6 @@ x-errorcodes:
       Who can use code?: BPP
       Usage: Used in NACK
       Action: NACK on /on_select
-    - Code: '90007'
-      Reason: Bids has cancelled and no longer available for bid/auction
-      Who can use code?: BPP
-      Usage: Used in error object
-      Action: /on_select
     - Code: '90007'
       Reason: Bids has cancelled and no longer available for bid/auction
       Who can use code?: BPP
