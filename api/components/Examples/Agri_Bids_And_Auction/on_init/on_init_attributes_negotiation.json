@@ -45,7 +45,11 @@
           },
           "quantity": {
             "selected": {
-              "count": 100
+              "count": 100,
+              "measure": {
+                "unit": "kg",
+                "value": "50"
+              }
             }
           },
           "tags": [
@@ -418,7 +422,11 @@
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": 100
+                  "count": 100,
+                  "measure": {
+                    "unit": "kg",
+                    "value": "50"
+                  }
                 }
               },
               "price": {
