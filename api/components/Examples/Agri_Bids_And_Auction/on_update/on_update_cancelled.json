@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "O1",
-      "status": "In-Progress",
+      "status": "Cancelled",
       "provider": {
         "id": "P1",
         "locations": [
@@ -43,11 +43,11 @@
           ],
           "price": {
             "currency": "INR",
-            "offered_value": "300.00"
+            "offered_value": "250.00"
           },
           "quantity": {
             "selected": {
-              "count": 110,
+              "count": 100,
               "measure": {
                 "unit": "kg",
                 "value": "50"
@@ -153,7 +153,7 @@
           "id": "PY2",
           "collected_by": "BPP",
           "params": {
-            "amount": "33050.00",
+            "amount": "25050.00",
             "currency": "INR",
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
@@ -212,7 +212,7 @@
           "id": "F1",
           "state": {
             "descriptor": {
-              "code": "Placed"
+              "code": "Cancelled"
             }
           }
         }
@@ -220,20 +220,20 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "38050.00"
+          "value": "30050.00"
         },
         "breakup": [
           {
             "title": "Wheat (Auction)",
             "price": {
               "currency": "INR",
-              "value": "33000.00"
+              "value": "25000.00"
             },
             "item": {
               "id": "I1",
               "quantity": {
                 "selected": {
-                  "count": 110,
+                  "count": 100,
                   "measure": {
                     "unit": "kg",
                     "value": "50"
@@ -242,7 +242,7 @@
               },
               "price": {
                 "currency": "INR",
-                "value": "300.00"
+                "value": "250.00"
               }
             },
             "tags": [

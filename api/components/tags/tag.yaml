@@ -56,6 +56,10 @@ seller_id:
   - code: seller_id_code
     description: Seller id code i.e. mandi_licence (Required)
     reference: <PR/Issue/Discussion Links md format text>
+full_pull_required:
+  - code: full_pull_required
+    description: this tag is use when seller wants to inform buyer that they need to pull full catelog for latest changes and possible value is Y or N (Y -Yes, N - No) (Optional)
+    reference: <PR/Issue/Discussion Links md format text>
   - code: seller_id_no
     description: Seller unique mandi licence number (Required)
     reference: <PR/Issue/Discussion Links md format text>
