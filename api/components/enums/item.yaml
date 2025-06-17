@@ -1,8 +1,5 @@
 time:
   label:
-    - code: disabled
-      description: If item is not available for bids and auction
-      reference: <PR/Issue/Discussion Links md format text>
     - code: validity
       description: If item is available into defined time range
       reference: <PR/Issue/Discussion Links md format text>

@@ -28,6 +28,11 @@ catalog:
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/seller_terms"
+      - code: full_pull_required
+        description: this tag is use when seller wants to inform buyer that they need to pull full catelog for latest changes and possible value is Y or N (Y -Yes, N - No) (Optional)
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          $ref: "./Tag.yaml#/full_pull_required"
       - code: seller_id
         description: Seller Id (Optional)
         reference: <PR/Issue/Discussion Links md format text>

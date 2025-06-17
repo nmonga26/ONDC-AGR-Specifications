@@ -2674,9 +2674,6 @@ x-enum:
                     reference: <PR/Issue/Discussion Links md format text>
             time:
               label:
-                - code: disabled
-                  description: If item is not available for bids and auction
-                  reference: <PR/Issue/Discussion Links md format text>
                 - code: validity
                   description: If item is available into defined time range
                   reference: <PR/Issue/Discussion Links md format text>
@@ -2953,15 +2950,28 @@ x-tags:
                 - code: gst_credit_invoice
                   description: gst invoice if applicable (Required)
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: full_pull_required
+              description: >-
+                this tag is use when seller wants to inform buyer that they need
+                to pull full catelog for latest changes and possible value is Y
+                or N (Y -Yes, N - No) (Optional)
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: full_pull_required
+                  description: >-
+                    this tag is use when seller wants to inform buyer that they
+                    need to pull full catelog for latest changes and possible
+                    value is Y or N (Y -Yes, N - No) (Optional)
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: seller_id_no
+                  description: Seller unique mandi licence number (Required)
+                  reference: <PR/Issue/Discussion Links md format text>
             - code: seller_id
               description: Seller Id (Optional)
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: seller_id_code
                   description: Seller id code i.e. mandi_licence (Required)
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: seller_id_no
-                  description: Seller unique mandi licence number (Required)
                   reference: <PR/Issue/Discussion Links md format text>
             - code: FSSAI_LICENSE_NO
               description: FSSAI License if applicable (Optional)
@@ -17454,6 +17464,10 @@ x-flows:
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
                       - descriptor:
+                          code: full_pull_required
+                        value: 'Y'
+                        display: 'false'
+                      - descriptor:
                           code: seller_terms
                         list:
                           - descriptor:
@@ -17806,8 +17820,8 @@ x-flows:
               bap_uri: https://buyerapp.com/ondc
               bpp_id: sellerapp.com
               bpp_uri: https://sellerapp.com/ondc
-              transaction_id: T1
-              message_id: M1
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62323
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b2938
               timestamp: '2024-06-10T22:00:20.000Z'
               ttl: PT30S
             message:
@@ -17855,6 +17869,10 @@ x-flows:
                         desc: Certified Provider
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
+                      - descriptor:
+                          code: full_pull_required
+                        value: 'N'
+                        display: 'false'
                       - descriptor:
                           code: seller_terms
                         list:
@@ -17906,7 +17924,7 @@ x-flows:
                               email: abc@xyz.com
                         price:
                           currency: INR
-                          value: '300.00'
+                          value: '350.00'
                         quantity:
                           available:
                             measure:
@@ -19133,7 +19151,7 @@ x-flows:
                   - id: PY2
                     collected_by: BPP
                     params:
-                      amount: '30050.00'
+                      amount: '33050.00'
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
@@ -19186,6 +19204,407 @@ x-flows:
                         price:
                           currency: INR
                           value: '300.00'
+                      tags:
+                        - descriptor:
+                            code: TITLE
+                          list:
+                            - descriptor:
+                                code: type
+                              value: item
+                    - title: earnest_money_deposit
+                      price:
+                        currency: INR
+                        value: '5000.00'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: TITLE
+                          list:
+                            - descriptor:
+                                code: type
+                              value: earnest_money_deposit
+                    - title: tax
+                      price:
+                        currency: INR
+                        value: '50'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: tax
+                    - title: discount
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: discount
+                    - title: pickup_charge
+                      price:
+                        currency: INR
+                        value: '100'
+                      item:
+                        id: I1
+                      tags:
+                        - descriptor:
+                            code: title
+                          list:
+                            - descriptor:
+                                code: type
+                              value: misc
+                  ttl: P1D
+  - summary: >-
+      Agricultural product - Bids and Auction for a Commodity (Merchant
+      Cancellation)
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to bids for agricultural commodity. The bids and
+      auction majorly happens in four phases of order processing flow, i.e.
+      Discovery of available commodity and service providers, order, fulfillment
+      and post-fulfillment.
+    details:
+      - description: Sequence Diagram for Bids and Auction
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant G as Gateway
+            participant SA1 as SellerApp1
+            participant SA2 as SellerApp2
+            
+            Note Over B,SA2: **SEARCH FLOW**
+            B ->> BA: Buyer initiates an exploratory search for Bids and Auctions.
+            BA ->> G: **/search** - Search by city for a commodity and <br>additional parameters
+            Note left of BA: Additional params include: <br><br>
+            G ->> SA1: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
+            G ->> SA2: **/search** - Commodity bids request broadcasted based <br>on city and domain in context
+            SA1 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
+            SA2 ->> BA: **/on_search** - Seller responds with /on_search, providing available auctions <br> with their details, including floor price, Start/End Time, Bid Increment
+            Note Over BA,SA1: Buyer now has the option to choose the <br>Commodity bids from either Seller 1 or Seller 2 or both
+            BA ->> B: Shows all the avilable bids <br>options from sellers
+      - description: Auction Selection
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **SELECT FLOW**
+            B ->> BA: Buyer selects an auction.
+            BA ->> SA: **/select** - Buyer sends a /select request to <br> Seller, along with the Buyer's ID.
+            SA ->> SA: Verifies Buyer ID
+            SA ->> BA: **/on_select** - Seller verifies the Buyer's ID <br> whether he is allowed or not and send the status.
+            BA ->> B: If Buyer is eligible, Seller confirms bid details
+      - description: Fee Requirement Check
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **FEE REQUIREMENT CHECK**
+            B ->> BA: If a fee is required, buyer check payment
+            BA ->> SA: **/init** - Buyer requests participation with /init
+            SA ->> BA: **/on_init** - Seller responds with /on_init, <br> sending a payment gateway (PG) link for payment.
+            B ->> BA: Buyer makes the payment.
+            BA -->> SA: Payment received.
+            SA ->> BA: **/on_status** - Seller confirms the paymnet has been received.
+      - description: Bid Placement
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **BID PLACEMENT FLOW**
+            B ->> BA: Buyer places a bid.
+            BA ->> SA: **/init** - Buyer sends /init, indicating bid placement. <br> The bid price will be shared in the intent.
+            SA ->> BA: **/on_init** - Seller acknowledges the bid placement with /on_init.
+            BA ->> B: Confirms Bid Placement
+      - description: Bid Confirmation
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp
+            Note Over B,SA: **CONFIRMATION FLOW**
+            B ->> BA: Confirms the Order
+            BA ->> SA: **/confirm** - Buyer confirms the order
+            SA ->> BA: **/on_confirm** - Seller responds with /on_confirm, <br> creating an Order ID with the bid state set to "Placed."
+            BA ->> B: Confirms the bids
+      - description: Fulfillment
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **BIDS STATUS FLOW**
+            B ->> BA: Checks the bid status
+            BA ->> SA: **/status** - Enquire bid status <br>or maximum bid price (if open bid)
+            SA ->> BA: **/on_status** - Seller responds with the highest price
+            BA ->> B: Updates the latest status
+      - description: Update Requests
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **BIDS UPDATES FLOW**
+            B ->> BA: Buyer requests updates with /update
+            BA ->> SA: **/update** - Buyer requests updates
+            SA ->> BA: **/on_update** - Seller responds with /on_update, updating with the highest price
+            BA ->> B: Updates the latest status
+            B ->> BA: Buyer may update an existing bid price with another /update request.
+      - description: Bid Outcome
+        mermaidGraph: |-
+          sequenceDiagram
+            participant B as Buyer
+            participant BA as BuyerApp
+            participant SA as SellerApp 
+            Note Over B,SA: **BID OUTCOME FLOW**
+            B ->> BA: Buyer requests an update on the auction
+            BA ->> SA: **/update** - Buyer requests an update on the auction
+            SA ->> BA: **/on_update** - If Buyer wins the bid, Seller responds with /on_update,<br> setting the bid state to "Awarded."
+            SA ->> BA: **/on_update** - If Buyer loses, Seller responds with /on_update, <br> setting the bid state to "Not Awarded" and indicating the highest bid amount.
+            BA ->> B: Updates the latest bid outcome
+    reference: if any
+    steps:
+      - summary: Buyer initiates an exploratory search for Bids and Auctions.
+        api: search
+        description: >-
+          The buyer expresses interest in purchasing a commodity (such as wheat)
+          from all currently available auctions, serviceable to him
+        reference: if any
+        example: *ref_15
+      - summary: >-
+          Seller providing available auctions with their details, including
+          floor price, Start/End Time, Bid Increment
+        api: on_search
+        description: >-
+          Seller responds with /on_search, providing available auctions with
+          their details, including floor price, Start/End Time, Bid Increment
+        reference: if any
+        example: *ref_25
+      - summary: Buyer sends a /select request to Seller, along with the Buyer's ID.
+        api: select
+        description: Buyer sends a /select request to Seller, along with the Buyer's ID.
+        reference: if any
+        example: *ref_19
+      - summary: Seller verifies the Buyer's ID whether he is allowed or not.
+        api: on_select
+        description: Seller verifies the Buyer's ID whether he is allowed or not.
+        reference: if any
+        example: *ref_26
+      - summary: Buyer requests participation fee if required
+        api: init (Participation Fee)
+        description: >-
+          Buyer requests participation with /init and perform Fee Requirement
+          Check
+        reference: if any
+        example: *ref_20
+      - summary: >-
+          Seller responds with /on_init, sending a payment gateway (PG) link for
+          payment.
+        api: on_init (Participation Fee)
+        description: >-
+          Seller responds with /on_init, sending a payment gateway (PG) link for
+          payment.
+        reference: if any
+        example: *ref_27
+      - summary: >-
+          Once Buyer pays on the PG Link, Seller sends an /on_status indicating
+          the confirmation of payment.
+        api: on_status (Payment Confirmation)
+        description: Seller responds with /on_status, confirming the payment.
+        reference: if any
+        example: *ref_31
+      - summary: >-
+          Buyer sends /init, indicating bid placement. The bid price will be
+          shared in the intent.
+        api: init (Bid Placement)
+        description: >-
+          Buyer sends /init, indicating bid placement. The bid price will be
+          shared in the intent.
+        reference: if any
+        example: *ref_21
+      - summary: Seller acknowledges the bid placement with /on_init
+        api: on_init (Bid Placement)
+        description: Seller acknowledges the bid placement with /on_init
+        reference: if any
+        example: *ref_28
+      - summary: Buyer confirms the order with /confirm.
+        api: confirm
+        description: Buyer confirms the order with /confirm.
+        example: *ref_22
+      - summary: >-
+          Seller responds with /on_confirm, creating an Order ID with the bid
+          state set to "Placed."
+        api: on_confirm
+        description: >-
+          Seller responds with /on_confirm, creating an Order ID with the bid
+          state set to "Placed."
+        reference: if any
+        example: *ref_29
+      - summary: Seller app sends bids status if merchant cancelled the bid
+        api: on_update (Cancelled)
+        description: Seller app sends bids status as cancel
+        example:
+          value:
+            context:
+              domain: ONDC:AGR11
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/services
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/services
+              transaction_id: T1
+              message_id: M6
+              timestamp: '2024-06-10T22:01:20.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: Cancelled
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - AGR11-1001
+                    price:
+                      currency: INR
+                      offered_value: '250.00'
+                    quantity:
+                      selected:
+                        count: 100
+                        measure:
+                          unit: kg
+                          value: '50'
+                    payment_ids:
+                      - PY2
+                    tags:
+                      - descriptor:
+                          code: COMMODITY_SPECIFICATION
+                        list:
+                          - descriptor:
+                              code: SHELF_LIFE
+                            value: P10M
+                          - descriptor:
+                              code: MOISTURE
+                            value: 10%
+                          - descriptor:
+                              code: OIL_CONTENT
+                            value: 2%
+                          - descriptor:
+                              code: DEFECTIVES
+                            value: 7%
+                payments:
+                  - id: PY1
+                    collected_by: BPP
+                    url: https://abc.com/take_payment
+                    params:
+                      amount: '5000.00'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: PAID
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                  - id: PY2
+                    collected_by: BPP
+                    params:
+                      amount: '25050.00'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    status: NOT-PAID
+                    type: ON-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BPP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: Cancelled
+                quote:
+                  price:
+                    currency: INR
+                    value: '30050.00'
+                  breakup:
+                    - title: Wheat (Auction)
+                      price:
+                        currency: INR
+                        value: '25000.00'
+                      item:
+                        id: I1
+                        quantity:
+                          selected:
+                            count: 100
+                            measure:
+                              unit: kg
+                              value: '50'
+                        price:
+                          currency: INR
+                          value: '250.00'
                       tags:
                         - descriptor:
                             code: TITLE
@@ -31354,8 +31773,8 @@ x-examples:
                 bap_uri: https://buyerapp.com/ondc
                 bpp_id: sellerapp.com
                 bpp_uri: https://sellerapp.com/ondc
-                transaction_id: T1
-                message_id: M1
+                transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62323
+                message_id: bb579fb8-cb82-4824-be12-fcbc405b2938
                 timestamp: '2024-06-10T22:00:20.000Z'
                 ttl: PT30S
               message:
@@ -31403,6 +31822,10 @@ x-examples:
                           desc: Certified Provider
                           url: https://abcd.cdn.com/images/bage-img
                       tags:
+                        - descriptor:
+                            code: full_pull_required
+                          value: 'N'
+                          display: 'false'
                         - descriptor:
                             code: seller_terms
                           list:
@@ -31454,7 +31877,7 @@ x-examples:
                                 email: abc@xyz.com
                           price:
                             currency: INR
-                            value: '300.00'
+                            value: '350.00'
                           quantity:
                             available:
                               measure:
@@ -33262,7 +33685,10 @@ x-attributes:
                     description: >-
                       Details of seller_terms (any gst term), seller_id (like
                       mmandi licence) and FSSAI_LICENSE_NO (fssai license
-                      details).
+                      details) and also full_pull_required - this tag is use
+                      when seller wants to inform buyer that they need to pull
+                      full catelog for latest changes and possible value is Y or
+                      N (Y -Yes, N - No).
                     required: required
                     usage: '-'
                     reference: if any

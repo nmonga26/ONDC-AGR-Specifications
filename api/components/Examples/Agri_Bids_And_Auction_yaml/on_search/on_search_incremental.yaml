@@ -62,6 +62,10 @@ value:
               url: https://abcd.cdn.com/images/bage-img
           tags:
             - descriptor:
+                code: full_pull_required
+              value: 'Y'
+              display: 'false'
+            - descriptor:
                 code: seller_terms
               list:
                 - descriptor:

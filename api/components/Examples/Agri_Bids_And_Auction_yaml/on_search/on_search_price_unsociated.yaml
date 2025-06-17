@@ -12,8 +12,8 @@ value:
     bap_uri: https://buyerapp.com/ondc
     bpp_id: sellerapp.com
     bpp_uri: https://sellerapp.com/ondc
-    transaction_id: T1
-    message_id: M1
+    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62323
+    message_id: bb579fb8-cb82-4824-be12-fcbc405b2938
     timestamp: '2024-06-10T22:00:20.000Z'
     ttl: PT30S
   message:
@@ -61,6 +61,10 @@ value:
               desc: Certified Provider
               url: https://abcd.cdn.com/images/bage-img
           tags:
+            - descriptor:
+                code: full_pull_required
+              value: 'N'
+              display: 'false'
             - descriptor:
                 code: seller_terms
               list:
@@ -112,7 +116,7 @@ value:
                     email: abc@xyz.com
               price:
                 currency: INR
-                value: '300.00'
+                value: '350.00'
               quantity:
                 available:
                   measure:

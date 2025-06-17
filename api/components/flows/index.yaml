@@ -8,3 +8,4 @@
 - $ref: "./Agri_Bids_And_Auction/catalog_pull_push.yaml"
 - $ref: "./Agri_Bids_And_Auction/minimum_bid_quantity.yaml"
 - $ref: "./Agri_Bids_And_Auction/quantity_change.yaml"
+- $ref: "./Agri_Bids_And_Auction/merchant_cancellation.yaml"
