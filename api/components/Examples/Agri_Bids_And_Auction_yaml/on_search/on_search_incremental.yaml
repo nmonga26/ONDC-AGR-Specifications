@@ -62,10 +62,6 @@ value:
               url: https://abcd.cdn.com/images/bage-img
           tags:
             - descriptor:
-                code: full_pull_required
-              value: 'Y'
-              display: 'false'
-            - descriptor:
                 code: seller_terms
               list:
                 - descriptor:
@@ -170,6 +166,15 @@ value:
                     - descriptor:
                         code: CANCELLABLE
                       value: 'true'
+                    - descriptor:
+                        code: AGENT_ID
+                      value: AG001
+                    - descriptor:
+                        code: AGENT_NAME
+                      value: Many Kumar
+                    - descriptor:
+                        code: AGENT_FIRM
+                      value: Abc Firm
                 - descriptor:
                     code: QUALITY_ASSESSMENT_REPORT
                   display: true
@@ -343,6 +348,12 @@ value:
                     - descriptor:
                         code: BIDS_LIMITATION
                       value: '5'
+                    - descriptor:
+                        code: APMC_TRADE
+                      value: true
+                    - descriptor:
+                        code: SALE_TYPE
+                      value: primary
           offers:
             - id: offer-1
               descriptor:

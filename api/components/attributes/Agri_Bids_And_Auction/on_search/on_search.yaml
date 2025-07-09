@@ -365,7 +365,7 @@ message:
       tags: 
         descriptor:
           code: 
-            description: Details of seller_terms (any gst term), seller_id (like mmandi licence) and FSSAI_LICENSE_NO (fssai license details) and also full_pull_required - this tag is use when seller wants to inform buyer that they need to pull full catelog for latest changes and possible value is Y or N (Y -Yes, N - No).
+            description: Details of seller_terms (any gst term), seller_id (like mmandi licence) and FSSAI_LICENSE_NO (fssai license details).
             required: required
             usage: '-'
             reference: if any 

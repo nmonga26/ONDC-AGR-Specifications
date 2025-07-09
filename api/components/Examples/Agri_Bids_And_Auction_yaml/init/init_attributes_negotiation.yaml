@@ -85,8 +85,11 @@ value:
             code: BUYER_ID
           list:
             - descriptor:
-                code: BUYER_ID_CODE
-              value: mandi_licence
+                code: MANDI_LICENCE
+              value: mandi_licence_no
             - descriptor:
-                code: BUYER_ID_NO
-              value: xxxxxxxxxxxxxxx
+                code: REGISTRATION_ID
+              value: registration_number
+            - descriptor:
+                code: UNIFIED_LICENSE
+              value: unified_license_no
