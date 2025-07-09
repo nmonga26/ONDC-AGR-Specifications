@@ -1,6 +1,9 @@
 time:
   label:
     - code: validity
-      description: If item is available into defined time range
+      description: when the item is active and available for bidding within the associated time range
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: cancelled
+      description: When the bid is cancelled by the seller and is no longer available
       reference: <PR/Issue/Discussion Links md format text>
   

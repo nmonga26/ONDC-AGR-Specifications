@@ -56,10 +56,6 @@ seller_id:
   - code: seller_id_code
     description: Seller id code i.e. mandi_licence (Required)
     reference: <PR/Issue/Discussion Links md format text>
-full_pull_required:
-  - code: full_pull_required
-    description: this tag is use when seller wants to inform buyer that they need to pull full catelog for latest changes and possible value is Y or N (Y -Yes, N - No) (Optional)
-    reference: <PR/Issue/Discussion Links md format text>
   - code: seller_id_no
     description: Seller unique mandi licence number (Required)
     reference: <PR/Issue/Discussion Links md format text>
@@ -81,11 +77,14 @@ BAP_TERMS:
     description: Amount for the finder fee (Required)
     reference: <PR/Issue/Discussion Links md format text>
 BUYER_ID:
-  - code: BUYER_ID_CODE
-    description: Buyer id code. eg. "mandi_licence" (Required)
+  - code: MANDI_LICENCE
+    description: Buyer mandi licence (Optional)
     reference: <PR/Issue/Discussion Links md format text>
-  - code: BUYER_ID_NO
-    description: Buyer id (Required)
+  - code: REGISTRATION_ID
+    description: Buyer registration id (Optional)
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: UNIFIED_LICENSE
+    description: Buyer unified id (Optional)
     reference: <PR/Issue/Discussion Links md format text>
 catalog_inc:
   - code: START_TIME
@@ -117,6 +116,15 @@ SERVICE_INFORMATION:
   - code: CANCELLABLE
     description: Allow that commodity bid is cancellable or not (Required)
     reference: <PR/Issue/Discussion Links md format text>
+  - code: AGENT_ID
+    description: "Agent id : Unique id of the person facilitating the sale (Commonly designated as commission agent id) (Optional)"
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AGENT_NAME
+    description: "Agent name : Name of the person facilitating the sale (Commonly designated as commission agent name) (Optional)"
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: AGENT_FIRM
+    description: "Agent firm : Firm of the person facilitating the sale (Commonly designated as commission agent firm) (Optional)"
+    reference: <PR/Issue/Discussion Links md format text>
 AUCTION_SPECIFICATION:
   - code: CURRENCY_UNIT
     description: Currency of the applied charges on bids (Required)
@@ -141,6 +149,12 @@ AUCTION_SPECIFICATION:
     reference: <PR/Issue/Discussion Links md format text>
   - code: BIDS_LIMITATION
     description: Limitation on Number of Bids - A seller may only accept 5 Bids (Optional) 
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: APMC_TRADE
+    description: Explains whether the auction is within APMC premise or outside
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SALE_TYPE
+    description: "Bids sale type which have possible value as primary or secondary, Primary Sale: When the farmer sells produce directly to buyers. Secondary Sale: When intermediaries sell the farmer’s produce onward."
     reference: <PR/Issue/Discussion Links md format text>
 RESCHEDULE_TERMS:
   - code: FULFILLMENT_STATE

@@ -91,13 +91,6 @@
           "tags": [
             {
               "descriptor": {
-                "code": "full_pull_required"
-              },
-              "value": "N",
-              "display": "false"
-            },
-            {
-              "descriptor": {
                 "code": "seller_terms"
               },
               "list": [
@@ -273,6 +266,24 @@
                         "code": "CANCELLABLE"
                       },
                       "value": "true"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AGENT_ID"
+                      },
+                      "value": "AG001"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AGENT_NAME"
+                      },
+                      "value": "Many Kumar"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "AGENT_FIRM"
+                      },
+                      "value": "Abc Firm"
                     }
                   ]
                 },
@@ -620,6 +631,18 @@
                         "code": "BIDS_LIMITATION"
                       },
                       "value": "5"
+                    },
+                    {
+                      "descriptor": {
+                        "code": "APMC_TRADE"
+                      },
+                      "value": true
+                    },
+                    {
+                      "descriptor": {
+                        "code": "SALE_TYPE"
+                      },
+                      "value": "primary"
                     }
                   ]
                 }

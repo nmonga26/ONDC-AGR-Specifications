@@ -76,15 +76,21 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "BUYER_ID_CODE"
+                                "code": "MANDI_LICENCE"
                             },
-                            "value": "mandi_licence"
+                            "value": "mandi_licence_no"
                         },
                         {
                             "descriptor": {
-                                "code": "BUYER_ID_NO"
+                                "code": "REGISTRATION_ID"
                             },
-                            "value": "xxxxxxxxxxxxxxx"
+                            "value": "registration_number"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "UNIFIED_LICENSE"
+                            },
+                            "value": "unified_license_no"
                         }
                     ]
                 }

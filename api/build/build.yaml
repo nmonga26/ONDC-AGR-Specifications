@@ -2675,7 +2675,14 @@ x-enum:
             time:
               label:
                 - code: validity
-                  description: If item is available into defined time range
+                  description: >-
+                    when the item is active and available for bidding within the
+                    associated time range
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: cancelled
+                  description: >-
+                    When the bid is cancelled by the seller and is no longer
+                    available
                   reference: <PR/Issue/Discussion Links md format text>
   init:
     context:
@@ -2884,11 +2891,14 @@ x-tags:
             description: Buyer Id (Optional)
             reference: <PR/Issue/Discussion Links md format text>
             list:
-              - code: BUYER_ID_CODE
-                description: Buyer id code. eg. "mandi_licence" (Required)
+              - code: MANDI_LICENCE
+                description: Buyer mandi licence (Optional)
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: BUYER_ID_NO
-                description: Buyer id (Required)
+              - code: REGISTRATION_ID
+                description: Buyer registration id (Optional)
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: UNIFIED_LICENSE
+                description: Buyer unified id (Optional)
                 reference: <PR/Issue/Discussion Links md format text>
           - code: CATALOG_INC
             description: >-
@@ -2950,28 +2960,15 @@ x-tags:
                 - code: gst_credit_invoice
                   description: gst invoice if applicable (Required)
                   reference: <PR/Issue/Discussion Links md format text>
-            - code: full_pull_required
-              description: >-
-                this tag is use when seller wants to inform buyer that they need
-                to pull full catelog for latest changes and possible value is Y
-                or N (Y -Yes, N - No) (Optional)
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: full_pull_required
-                  description: >-
-                    this tag is use when seller wants to inform buyer that they
-                    need to pull full catelog for latest changes and possible
-                    value is Y or N (Y -Yes, N - No) (Optional)
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: seller_id_no
-                  description: Seller unique mandi licence number (Required)
-                  reference: <PR/Issue/Discussion Links md format text>
             - code: seller_id
               description: Seller Id (Optional)
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: seller_id_code
                   description: Seller id code i.e. mandi_licence (Required)
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: seller_id_no
+                  description: Seller unique mandi licence number (Required)
                   reference: <PR/Issue/Discussion Links md format text>
             - code: FSSAI_LICENSE_NO
               description: FSSAI License if applicable (Optional)
@@ -2999,6 +2996,21 @@ x-tags:
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: CANCELLABLE
                     description: Allow that commodity bid is cancellable or not (Required)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: AGENT_ID
+                    description: >-
+                      Agent id : Unique id of the person facilitating the sale
+                      (Commonly designated as commission agent id) (Optional)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: AGENT_NAME
+                    description: >-
+                      Agent name : Name of the person facilitating the sale
+                      (Commonly designated as commission agent name) (Optional)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: AGENT_FIRM
+                    description: >-
+                      Agent firm : Firm of the person facilitating the sale
+                      (Commonly designated as commission agent firm) (Optional)
                     reference: <PR/Issue/Discussion Links md format text>
               - code: AUCTION_SPECIFICATION
                 description: >-
@@ -3035,6 +3047,18 @@ x-tags:
                     description: >-
                       Limitation on Number of Bids - A seller may only accept 5
                       Bids (Optional)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: APMC_TRADE
+                    description: >-
+                      Explains whether the auction is within APMC premise or
+                      outside
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SALE_TYPE
+                    description: >-
+                      Bids sale type which have possible value as primary or
+                      secondary, Primary Sale: When the farmer sells produce
+                      directly to buyers. Secondary Sale: When intermediaries
+                      sell the farmer’s produce onward.
                     reference: <PR/Issue/Discussion Links md format text>
               - code: NEGOTIATION_SPECIFICATION
                 description: >-
@@ -4167,11 +4191,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: >-
           Seller providing available product with their details, including
           price, fulfilment, avilable quantity
@@ -4681,11 +4708,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Seller accepts/counter-offers with price and allocated quantity
         api: on_select (counter-offers)
         description: Seller accepts/counter-offers with price and allocated quantity
@@ -5030,11 +5060,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Seller accepts/counter-offers with price and allocated quantity
         api: on_select (accepts)
         description: Seller accepts/counter-offers with price and allocated quantity
@@ -5396,11 +5429,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: >-
           Order initialization with fulfillment & settlement information
           including UPI or NEFT/IMPS/Bank Transfer
@@ -8232,11 +8268,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Seller accepts/counter-offers with price and allocated quantity
         api: on_select (counter-offers)
         description: Seller accepts/counter-offers with price and allocated quantity
@@ -8585,11 +8624,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Seller accepts/counter-offers with price and allocated quantity
         api: on_select (accepts)
         description: Seller accepts/counter-offers with price and allocated quantity
@@ -8958,11 +9000,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: >-
           Order initialization with fulfillment & settlement information
           including UPI or NEFT/IMPS/Bank Transfer
@@ -12061,6 +12106,15 @@ x-flows:
                               - descriptor:
                                   code: CANCELLABLE
                                 value: 'true'
+                              - descriptor:
+                                  code: AGENT_ID
+                                value: AG001
+                              - descriptor:
+                                  code: AGENT_NAME
+                                value: Many Kumar
+                              - descriptor:
+                                  code: AGENT_FIRM
+                                value: Abc Firm
                           - descriptor:
                               code: QUALITY_ASSESSMENT_REPORT
                             display: true
@@ -12234,6 +12288,12 @@ x-flows:
                               - descriptor:
                                   code: BIDS_LIMITATION
                                 value: '5'
+                              - descriptor:
+                                  code: APMC_TRADE
+                                value: false
+                              - descriptor:
+                                  code: SALE_TYPE
+                                value: primary
                     offers:
                       - id: offer-1
                         descriptor:
@@ -12345,11 +12405,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Seller verifies the Buyer's ID whether he is allowed or not.
         api: on_select
         description: Seller verifies the Buyer's ID whether he is allowed or not.
@@ -12507,11 +12570,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: >-
           Seller responds with /on_init, sending a payment gateway (PG) link for
           payment.
@@ -12880,11 +12946,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Seller acknowledges the bid placement with /on_init
         api: on_init (Bid Placement)
         description: Seller acknowledges the bid placement with /on_init
@@ -14895,6 +14964,15 @@ x-flows:
                               - descriptor:
                                   code: CANCELLABLE
                                 value: 'true'
+                              - descriptor:
+                                  code: AGENT_ID
+                                value: AG001
+                              - descriptor:
+                                  code: AGENT_NAME
+                                value: Many Kumar
+                              - descriptor:
+                                  code: AGENT_FIRM
+                                value: Abc Firm
                           - descriptor:
                               code: QUALITY_ASSESSMENT_REPORT
                             display: true
@@ -15068,6 +15146,12 @@ x-flows:
                               - descriptor:
                                   code: BIDS_LIMITATION
                                 value: '5'
+                              - descriptor:
+                                  code: APMC_TRADE
+                                value: true
+                              - descriptor:
+                                  code: SALE_TYPE
+                                value: secondary
                     offers:
                       - id: offer-1
                         descriptor:
@@ -17315,14 +17399,14 @@ x-flows:
     reference: if any
     steps:
       - summary: Buyer initiates an exploratory search for Bids and Auctions.
-        api: search
+        api: search (Full)
         description: >-
           The buyer expresses interest in purchasing a commodity (such as wheat)
           from all currently available auctions
         reference: if any
         example: *ref_15
       - summary: Returns the catalog specific to the search intent
-        api: on_search
+        api: on_search (Full)
         description: Returns the catalog specific to the search intent
         reference: if any
         example: *ref_25
@@ -17388,11 +17472,14 @@ x-flows:
                       code: BUYER_ID
                     list:
                       - descriptor:
-                          code: BUYER_ID_CODE
-                        value: mandi_licence
+                          code: MANDI_LICENCE
+                        value: mandi_licence_no
                       - descriptor:
-                          code: BUYER_ID_NO
-                        value: xxxxxxxxxxxxxxx
+                          code: REGISTRATION_ID
+                        value: registration_number
+                      - descriptor:
+                          code: UNIFIED_LICENSE
+                        value: unified_license_no
       - summary: Returns the catalog specific to the search register for incremental
         api: on_search (incremental)
         description: >-
@@ -17463,10 +17550,6 @@ x-flows:
                         desc: Certified Provider
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
-                      - descriptor:
-                          code: full_pull_required
-                        value: 'Y'
-                        display: 'false'
                       - descriptor:
                           code: seller_terms
                         list:
@@ -17572,6 +17655,15 @@ x-flows:
                               - descriptor:
                                   code: CANCELLABLE
                                 value: 'true'
+                              - descriptor:
+                                  code: AGENT_ID
+                                value: AG001
+                              - descriptor:
+                                  code: AGENT_NAME
+                                value: Many Kumar
+                              - descriptor:
+                                  code: AGENT_FIRM
+                                value: Abc Firm
                           - descriptor:
                               code: QUALITY_ASSESSMENT_REPORT
                             display: true
@@ -17745,6 +17837,12 @@ x-flows:
                               - descriptor:
                                   code: BIDS_LIMITATION
                                 value: '5'
+                              - descriptor:
+                                  code: APMC_TRADE
+                                value: true
+                              - descriptor:
+                                  code: SALE_TYPE
+                                value: primary
                     offers:
                       - id: offer-1
                         descriptor:
@@ -17870,10 +17968,6 @@ x-flows:
                         url: https://abcd.cdn.com/images/bage-img
                     tags:
                       - descriptor:
-                          code: full_pull_required
-                        value: 'N'
-                        display: 'false'
-                      - descriptor:
                           code: seller_terms
                         list:
                           - descriptor:
@@ -17978,6 +18072,15 @@ x-flows:
                               - descriptor:
                                   code: CANCELLABLE
                                 value: 'true'
+                              - descriptor:
+                                  code: AGENT_ID
+                                value: AG001
+                              - descriptor:
+                                  code: AGENT_NAME
+                                value: Many Kumar
+                              - descriptor:
+                                  code: AGENT_FIRM
+                                value: Abc Firm
                           - descriptor:
                               code: QUALITY_ASSESSMENT_REPORT
                             display: true
@@ -18151,6 +18254,425 @@ x-flows:
                               - descriptor:
                                   code: BIDS_LIMITATION
                                 value: '5'
+                              - descriptor:
+                                  code: APMC_TRADE
+                                value: true
+                              - descriptor:
+                                  code: SALE_TYPE
+                                value: primary
+                    offers:
+                      - id: offer-1
+                        descriptor:
+                          name: ''
+                          code: FREEBIE
+                          short_desc: Containers
+                          long_desc: Containers
+                          images:
+                            - url: https://abc.com/images/207.png
+                        location_ids:
+                          - L1
+                        category_ids:
+                          - AGR11-1001
+                        item_ids:
+                          - I1
+                        time:
+                          label: validity
+                          range:
+                            start: '2024-04-01T00:00:00.000Z'
+                            end: '2024-12-10T00:00:00.000Z'
+                        tags:
+                          - descriptor:
+                              code: qualifier
+                            list:
+                              - descriptor:
+                                  code: min_value
+                                value: '5000'
+                          - descriptor:
+                              code: benefit
+                            list:
+                              - descriptor:
+                                  code: item_count
+                                value: '5'
+                              - descriptor:
+                                  code: item_id
+                                value: I1
+                              - descriptor:
+                                  code: item_value
+                                value: '200.00'
+                          - descriptor:
+                              code: meta
+                            list:
+                              - descriptor:
+                                  code: additive
+                                value: 'no'
+                              - descriptor:
+                                  code: auto
+                                value: 'yes'
+                    fulfillments:
+                      - contact:
+                          phone: '9886098860'
+                          email: abc@xyz.com
+      - summary: Returns the catalog with updated bids when seller cancel the bids
+        api: on_search (Cancelled)
+        description: Returns the catalog with updated bids when seller cancel the bids
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:AGR11
+              location:
+                city:
+                  code: '*'
+                country:
+                  code: IND
+              action: on_search
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: T1
+              message_id: M1
+              timestamp: '2024-06-10T22:00:20.000Z'
+              ttl: PT30S
+            message:
+              catalog:
+                fulfillments:
+                  - id: F1
+                    type: Buyer-Fulfilled
+                  - id: F2
+                    type: Bids
+                descriptor:
+                  name: Wheat Farm Store
+                  short_desc: Wheat Farm Store
+                  long_desc: Wheat Farm Store
+                  images:
+                    - url: https://abc.com/images/1-shop-img
+                providers:
+                  - id: P1
+                    descriptor:
+                      name: Wheat Farm Store
+                      code: P001
+                      short_desc: Wheat Farm Store
+                      long_desc: Wheat Farm Store
+                      additional_desc:
+                        url: chat link
+                        content_type: text/html
+                      images:
+                        - url: https://abc.com/images/1-shop-img
+                    rating: '4.4'
+                    ttl: P1D
+                    locations:
+                      - id: L1
+                        gps: 12.967555,77.749666
+                        address: Jayanagar 4th Block
+                        city:
+                          code: std:080
+                          name: Bengaluru
+                        state:
+                          code: KA
+                        country:
+                          code: IND
+                        area_code: '560076'
+                    creds:
+                      - id: EQP-12345678
+                        type: Certificate
+                        desc: Certified Provider
+                        url: https://abcd.cdn.com/images/bage-img
+                    tags:
+                      - descriptor:
+                          code: seller_terms
+                        list:
+                          - descriptor:
+                              code: gst_credit_invoice
+                            value: 'Y'
+                      - descriptor:
+                          code: seller_id
+                        list:
+                          - descriptor:
+                              code: seller_id_code
+                            value: mandi_licence
+                          - descriptor:
+                              code: seller_id_no
+                            value: xxxxxxxxxxxxxxx
+                      - descriptor:
+                          code: FSSAI_LICENSE_NO
+                        list:
+                          - descriptor:
+                              code: BRAND_OWNER
+                            value: ABC Foods Pvt. Ltd.
+                          - descriptor:
+                              code: LICENSE_NUMBER
+                            value: '10012345000001'
+                          - descriptor:
+                              code: TYPE_OF_BUSINESS
+                            value: Importer
+                    items:
+                      - id: I1
+                        descriptor:
+                          name: Wheat (Auction)
+                          short_desc: High-quality grain
+                          long_desc: High-quality grain
+                          images:
+                            - url: https://abc.com/images/207.png
+                          media:
+                            - mimetype: video/mp4
+                              url: https://abc.com/images/207.mp4
+                        creator:
+                          descriptor:
+                            name: Any Marketer if (applicable)
+                            contact:
+                              name: Any Marketer
+                              address:
+                                full: >-
+                                  Wheat Pvt Ltd, A-3, NDDB House, Sector-1,
+                                  Chandigarh, 140301
+                              phone: '18000000000'
+                              email: abc@xyz.com
+                        price:
+                          currency: INR
+                          value: '300.00'
+                        quantity:
+                          available:
+                            measure:
+                              unit: kg
+                              value: '50'
+                            count: 100
+                          minimum:
+                            measure:
+                              unit: kg
+                              value: '50'
+                            count: 100
+                        category_ids:
+                          - AGR11-1001
+                        fulfillment_ids:
+                          - F1
+                          - F2
+                        location_ids:
+                          - L1
+                        cancellation_terms:
+                          - fulfillment_state:
+                              descriptor:
+                                code: Pending
+                            reason_required: false
+                            cancellation_fee:
+                              amount:
+                                currency: IND
+                                value: '0'
+                          - fulfillment_state:
+                              descriptor:
+                                code: Awarded
+                            reason_required: false
+                            cancellation_fee:
+                              amount:
+                                currency: IND
+                                value: '100'
+                        time:
+                          label: cancelled
+                          range:
+                            start: '2024-06-10T00:00:00.000Z'
+                            end: '2024-06-30T00:00:00.000Z'
+                        matched: true
+                        recommended: true
+                        tags:
+                          - descriptor:
+                              code: SERVICE_INFORMATION
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: PICKUP_TAT
+                                value: PT2D
+                              - descriptor:
+                                  code: CANCELLABLE
+                                value: 'true'
+                              - descriptor:
+                                  code: AGENT_ID
+                                value: AG001
+                              - descriptor:
+                                  code: AGENT_NAME
+                                value: Many Kumar
+                              - descriptor:
+                                  code: AGENT_FIRM
+                                value: Abc Firm
+                          - descriptor:
+                              code: QUALITY_ASSESSMENT_REPORT
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: NAME
+                                value: CER-001
+                              - descriptor:
+                                  code: MIME_TYPE
+                                value: application/pdf
+                              - descriptor:
+                                  code: COPY
+                                value: https://abc.com/certificates
+                          - descriptor:
+                              code: COMMODITY_SPECIFICATION
+                            list:
+                              - descriptor:
+                                  code: REFERENCE_DOCS_MIME_TYPE
+                                value: application/pdf
+                              - descriptor:
+                                  code: REFERENCE_DOCS_COPY
+                                value: https://abc.com/commodity_specification.pdf
+                              - descriptor:
+                                  code: SHELF_LIFE
+                                value: P10M
+                              - descriptor:
+                                  code: MOISTURE
+                                value: 10%
+                              - descriptor:
+                                  code: FOREIGN_MATTER
+                                value: 3%
+                              - descriptor:
+                                  code: OIL_CONTENT
+                                value: 2%
+                              - descriptor:
+                                  code: DEFECTIVES
+                                value: 7%
+                              - descriptor:
+                                  code: OTHER_EDIBLE_GRAINS
+                                value: 1%
+                              - descriptor:
+                                  code: URIC_ACID
+                                value: '101'
+                              - descriptor:
+                                  code: AFLATOXIN
+                                value: '15'
+                              - descriptor:
+                                  code: ARGEMONE_SEEDS
+                                value: 'Yes'
+                              - descriptor:
+                                  code: SIZE_RANGE_MEASURE
+                                value: Diameter
+                              - descriptor:
+                                  code: SIZE_RANGE
+                                value: 15-18
+                              - descriptor:
+                                  code: PERCENTAGE_OF_DEFECTS
+                                value: 1.5%
+                              - descriptor:
+                                  code: PERCENTAGE_OF_WASTAGE
+                                value: 3%
+                              - descriptor:
+                                  code: BUNCH_SIZE_VALUE
+                                value: '50'
+                              - descriptor:
+                                  code: BUNCH_SIZE_UNIT
+                                value: gm
+                              - descriptor:
+                                  code: VISIBLE_COLOUR
+                                value: Brown
+                              - descriptor:
+                                  code: COLOUR_PERCENTAGE
+                                value: '>=70%'
+                              - descriptor:
+                                  code: TOTAL_SOLUBLE_SOLIDS
+                                value: 16 degree Brix
+                              - descriptor:
+                                  code: TRACES_OF_SOIL
+                                value: Sight traces
+                              - descriptor:
+                                  code: VOLATILE_OIL
+                                value: <=2.5%
+                              - descriptor:
+                                  code: TOTAL_ASH
+                                value: <=7%
+                              - descriptor:
+                                  code: CORIANDER_SPLIT_SEEDS_PERCENTAGE
+                                value: 5%
+                              - descriptor:
+                                  code: MIN_FLOWER_PER_STEM
+                                value: '1'
+                              - descriptor:
+                                  code: GIRTH_AT_THIN_END_VALUE
+                                value: <=6
+                              - descriptor:
+                                  code: GIRTH_AT_THIN_END_UNIT
+                                value: cm
+                              - descriptor:
+                                  code: BLOOMING_AND_SHAPE
+                                value: '>=85%'
+                              - descriptor:
+                                  code: FLOWER_DIAMETER_VALUE
+                                value: '3.45'
+                              - descriptor:
+                                  code: FLOWER_DIAMETER_UNIT
+                                value: cm
+                              - descriptor:
+                                  code: STAPLE_LENGTH_OF_COTTON_VALUE
+                                value: 28‑30
+                              - descriptor:
+                                  code: STAPLE_LENGTH_OF_COTTON_UNIT
+                                value: mm
+                              - descriptor:
+                                  code: TRASH_PERCENTAGE
+                                value: 3%
+                              - descriptor:
+                                  code: BUNDLE_STRENGTH
+                                value: '>=24.0'
+                              - descriptor:
+                                  code: MICRONAIRE
+                                value: 2.8-3.0
+                              - descriptor:
+                                  code: PERCENTAGE_OF_MATURED_FIBERS
+                                value: '>=70.0'
+                              - descriptor:
+                                  code: SIEVE_ANALYSIS
+                                value: '98'
+                              - descriptor:
+                                  code: NUMBER_OF_NUTS_VALUE
+                                value: '210'
+                              - descriptor:
+                                  code: NUMBER_OF_NUTS_UNIT
+                                value: kg
+                              - descriptor:
+                                  code: VOID_NUTS
+                                value: 1%
+                              - descriptor:
+                                  code: IMMATURE_NUTS
+                                value: 2%
+                              - descriptor:
+                                  code: STRENGTH
+                                value: Excellent
+                              - descriptor:
+                                  code: FINENESS
+                                value: '10'
+                          - descriptor:
+                              code: AUCTION_SPECIFICATION
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: CURRENCY_UNIT
+                                value: INR
+                              - descriptor:
+                                  code: FLOOR_PRICE
+                                value: '250.00'
+                              - descriptor:
+                                  code: MIN_BIDDER_REQUIRED
+                                value: '5'
+                              - descriptor:
+                                  code: TYPE_OF_AUCTION
+                                value: OPEN
+                              - descriptor:
+                                  code: EARNEST_MONEY_DEPOSIT
+                                value: '5000.00'
+                              - descriptor:
+                                  code: TICK_SIZE
+                                value: '50.00'
+                              - descriptor:
+                                  code: MAXIMUM_TARGET_PRICE
+                                value: '350.00'
+                              - descriptor:
+                                  code: BIDS_LIMITATION
+                                value: '5'
+                              - descriptor:
+                                  code: APMC_TRADE
+                                value: false
+                              - descriptor:
+                                  code: SALE_TYPE
+                                value: primary
                     offers:
                       - id: offer-1
                         descriptor:
@@ -18499,6 +19021,15 @@ x-flows:
                               - descriptor:
                                   code: CANCELLABLE
                                 value: 'true'
+                              - descriptor:
+                                  code: AGENT_ID
+                                value: AG001
+                              - descriptor:
+                                  code: AGENT_NAME
+                                value: Many Kumar
+                              - descriptor:
+                                  code: AGENT_FIRM
+                                value: Abc Firm
                           - descriptor:
                               code: QUALITY_ASSESSMENT_REPORT
                             display: true
@@ -18672,6 +19203,12 @@ x-flows:
                               - descriptor:
                                   code: BIDS_LIMITATION
                                 value: '5'
+                              - descriptor:
+                                  code: APMC_TRADE
+                                value: true
+                              - descriptor:
+                                  code: SALE_TYPE
+                                value: primary
                     offers:
                       - id: offer-1
                         descriptor:
@@ -19716,11 +20253,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_36
             value:
               context:
@@ -19763,11 +20303,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_37
             value:
               context:
@@ -19810,11 +20353,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_38
             value:
               context:
@@ -19862,11 +20408,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_39
             value:
               context:
@@ -19911,11 +20460,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_40
             value:
               context:
@@ -19960,11 +20512,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
       select:
         examples:
           - &ref_42
@@ -20032,11 +20587,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_43
             value:
               context:
@@ -20092,11 +20650,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_44
             value:
               context:
@@ -20162,11 +20723,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_41
             value:
               context:
@@ -20235,11 +20799,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_45
             value:
               context:
@@ -20308,11 +20875,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
       init:
         examples:
           - &ref_46
@@ -20402,11 +20972,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_47
             value:
               context:
@@ -20485,11 +21058,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_48
             value:
               context:
@@ -20568,11 +21144,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
           - &ref_49
             value:
               context:
@@ -20661,11 +21240,14 @@ x-examples:
                         code: BUYER_ID
                       list:
                         - descriptor:
-                            code: BUYER_ID_CODE
-                          value: mandi_licence
+                            code: MANDI_LICENCE
+                          value: mandi_licence_no
                         - descriptor:
-                            code: BUYER_ID_NO
-                          value: xxxxxxxxxxxxxxx
+                            code: REGISTRATION_ID
+                          value: registration_number
+                        - descriptor:
+                            code: UNIFIED_LICENSE
+                          value: unified_license_no
       confirm:
         examples:
           - &ref_50
@@ -22419,6 +23001,15 @@ x-examples:
                                 - descriptor:
                                     code: CANCELLABLE
                                   value: 'true'
+                                - descriptor:
+                                    code: AGENT_ID
+                                  value: AG001
+                                - descriptor:
+                                    code: AGENT_NAME
+                                  value: Many Kumar
+                                - descriptor:
+                                    code: AGENT_FIRM
+                                  value: Abc Firm
                             - descriptor:
                                 code: QUALITY_ASSESSMENT_REPORT
                               display: true
@@ -22592,6 +23183,12 @@ x-examples:
                                 - descriptor:
                                     code: BIDS_LIMITATION
                                   value: '5'
+                                - descriptor:
+                                    code: APMC_TRADE
+                                  value: false
+                                - descriptor:
+                                    code: SALE_TYPE
+                                  value: primary
                       offers:
                         - id: offer-1
                           descriptor:
@@ -22809,6 +23406,15 @@ x-examples:
                                 - descriptor:
                                     code: CANCELLABLE
                                   value: 'true'
+                                - descriptor:
+                                    code: AGENT_ID
+                                  value: AG001
+                                - descriptor:
+                                    code: AGENT_NAME
+                                  value: Many Kumar
+                                - descriptor:
+                                    code: AGENT_FIRM
+                                  value: Abc Firm
                             - descriptor:
                                 code: QUALITY_ASSESSMENT_REPORT
                               display: true
@@ -22982,6 +23588,12 @@ x-examples:
                                 - descriptor:
                                     code: BIDS_LIMITATION
                                   value: '5'
+                                - descriptor:
+                                    code: APMC_TRADE
+                                  value: true
+                                - descriptor:
+                                    code: SALE_TYPE
+                                  value: secondary
                       offers:
                         - id: offer-1
                           descriptor:
@@ -31823,10 +32435,6 @@ x-examples:
                           url: https://abcd.cdn.com/images/bage-img
                       tags:
                         - descriptor:
-                            code: full_pull_required
-                          value: 'N'
-                          display: 'false'
-                        - descriptor:
                             code: seller_terms
                           list:
                             - descriptor:
@@ -31931,6 +32539,15 @@ x-examples:
                                 - descriptor:
                                     code: CANCELLABLE
                                   value: 'true'
+                                - descriptor:
+                                    code: AGENT_ID
+                                  value: AG001
+                                - descriptor:
+                                    code: AGENT_NAME
+                                  value: Many Kumar
+                                - descriptor:
+                                    code: AGENT_FIRM
+                                  value: Abc Firm
                             - descriptor:
                                 code: QUALITY_ASSESSMENT_REPORT
                               display: true
@@ -32104,6 +32721,12 @@ x-examples:
                                 - descriptor:
                                     code: BIDS_LIMITATION
                                   value: '5'
+                                - descriptor:
+                                    code: APMC_TRADE
+                                  value: true
+                                - descriptor:
+                                    code: SALE_TYPE
+                                  value: primary
                       offers:
                         - id: offer-1
                           descriptor:
@@ -33685,10 +34308,7 @@ x-attributes:
                     description: >-
                       Details of seller_terms (any gst term), seller_id (like
                       mmandi licence) and FSSAI_LICENSE_NO (fssai license
-                      details) and also full_pull_required - this tag is use
-                      when seller wants to inform buyer that they need to pull
-                      full catelog for latest changes and possible value is Y or
-                      N (Y -Yes, N - No).
+                      details).
                     required: required
                     usage: '-'
                     reference: if any
