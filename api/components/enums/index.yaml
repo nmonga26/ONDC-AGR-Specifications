@@ -8,6 +8,8 @@ search:
         category:
           id:
             $ref: "./category.yaml#/category_ids"
+          commodity_name:
+            $ref: "./commodity.yaml#/commodity_name"
       fulfillments: &fulfillments
         type: 
           $ref: "./fulfillments.yaml#/fulfillments/type"

@@ -202,6 +202,12 @@ CHECKLIST_DOCUMENTS:
     description: Terms of uses for equipment hiring if applicable (Optional)
     reference: <PR/Issue/Discussion Links md format text>
 COMMODITY_SPECIFICATION:
+  - code: COMMODITY_NAME
+    description: Name of commodity (Required - Only valid list is acceptable and enum can be found under enum section along with category under search)
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COMMODITY_VARIETY
+    description: Variety based on the commodity (Optional - depends on commodity and its a free text field)
+    reference: <PR/Issue/Discussion Links md format text>    
   - code: REFERENCE_DOCS_MIME_TYPE
     description: Reference docs mime type of the commodity specification if applicable (Optional - depends on commodity)
     reference: <PR/Issue/Discussion Links md format text>

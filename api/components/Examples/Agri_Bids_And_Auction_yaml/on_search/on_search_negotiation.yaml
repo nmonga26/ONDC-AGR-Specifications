@@ -179,6 +179,17 @@ value:
                     code: COMMODITY_SPECIFICATION
                   list:
                     - descriptor:
+                        code: COMMODITY_NAME
+                      value: WHEAT
+                    - descriptor:
+                        code: COMMODITY_VARIETY
+                      value: >-
+                        Pusa 2967, Pusa 3086, Kalyani 187, Kalyani 222, Haryana
+                        1105, Pusa 3226, Punjab Wheat 725, Punjab Wheat 824,
+                        Pusa Tejas / Sarbati, MP Sarbati, MP Lokwan / Soft
+                        Sarbati, MP Local Sarbati, Lokwan, Gujarat Wheat,
+                        Rajasthan Lokwan / Desi Gehu
+                    - descriptor:
                         code: REFERENCE_DOCS_MIME_TYPE
                       value: application/pdf
                     - descriptor:
